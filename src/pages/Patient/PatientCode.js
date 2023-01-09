@@ -14,7 +14,7 @@ const PatientCode = (props) => {
   const PatientCodeHandler = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:3000/Patient/code', {
+    fetch('http://localhost:8080/Patient/code', {
         method: 'POST',
         body: JSON.stringify({
             id: 1,

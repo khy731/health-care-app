@@ -79,7 +79,7 @@ const UserLogin = (props) => {
   };
 
   const submitLogin = async () => {
-    const res = await fetch('http://localhost:3000/')   // API 주소 입력
+    const res = await fetch('http://localhost:8080/')   // API 주소 입력
         .then(res => res.json());
     if (res.result === 'ok') {
         if (props.type === 'doctor') {

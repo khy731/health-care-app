@@ -13,7 +13,7 @@ const DoctorCode = (props) => {
     setCode(Math.random().toString(16).slice(2, 8));
     console.log(code);
 
-    fetch('http://localhost:3000/doctor/code', {
+    fetch('http://localhost:8080/doctor/code', {
         method: 'PATCH',
         body: JSON.stringify({
             id: 1,

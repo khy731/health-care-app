@@ -15,13 +15,13 @@ const Doctor = () => {
       // sessionStorage 에 user_id 라는 key 값으로 저장된 값이 있다면
       // 로그인 상태 변경
         setId(sessionStorage.getItem('user_id'));
-        const res = UseFetch(`http://localhost:3000/doctor/${id}`);
+        const res = UseFetch(`http://localhost:8080/doctor/${id}`);
         setName(res.data.name);
         setIsLogin(true);
         console.log(`${name}님, 환영합니다!`);
       }
     });
-    
+
     return(
         <div>
             {isLogin && <>로그인 성공!</>}

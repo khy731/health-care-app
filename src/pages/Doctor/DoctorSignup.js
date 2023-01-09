@@ -21,7 +21,7 @@ const DoctorSignup = () => {
 
     console.log(id, name, phone, major, email, password, gender);
 
-    fetch("http://localhost:3000/patient/signup", {
+    fetch("http://localhost:8080/patient/signup", {
       method: "POST",
       body: JSON.stringify({
         name: name,
