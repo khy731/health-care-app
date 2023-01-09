@@ -83,9 +83,11 @@ const UserLogin = (props) => {
         .then(res => res.json());
     if (res.result === 'ok') {
         if (props.type === 'doctor') {
+            sessionStorage.setItem('doctor_id', res.data.doctor_id);
             navigate('/doctor');
         }
         if (props.type === 'patient') {
+            sessionStorage.setItem('patient_id', res.data.patient_id);
             navigate('/patient');
         }
     }
