@@ -1,11 +1,21 @@
 
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Card from '../../components/UI/Card';
 import Button from '../../components/UI/Button';
 
 const PatientCode = (props) => {
-  const [code, setCode] = useState();
+
+    const [id, setId] = useState("");
+    const [code, setCode] = useState("");
+
+    useEffect(() => {
+        if(sessionStorage.getItem('patient_id') === null){
+          console.log('회원 정보가 없습니다. 로그인하세요.');
+        } else {
+          setId(sessionStorage.getItem('patient_id'));
+        }
+      });
 
   const onChangeHandler = e => {
     setCode(e.target.value);
@@ -14,24 +24,30 @@ const PatientCode = (props) => {
   const PatientCodeHandler = (event) => {
     event.preventDefault();
 
-    fetch('http://localhost:8080/Patient/code', {
-        method: 'POST',
-        body: JSON.stringify({
-            id: 1,
+    fetch(`http://localhost:8080/patient/${id}/code`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data : {
             code: code
-    }),
-        headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-    },
+        }
+      }),
     })
   .then((response) => response.json())
-  .then((json) => {
-    console.log(json);
-    if (json.result === 'ok')
-    alert("매칭이 완료되었습니다");
-  });
-      return;
+  .then(res => {
+    if (res.result === 'OK') {
+        alert("매칭이 완료되었습니다");
     }
+    if (res.result === "Fail") {
+        alert("서버 오류로 매칭이 실패했습니다. 다시 시도해주세요.");
+    }
+    else {
+        alert("잘못된 시도입니다.");
+    }
+  });
+}
 
   return (
       <Card>

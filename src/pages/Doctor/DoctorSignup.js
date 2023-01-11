@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/UI/Button";
 
 const DoctorSignup = () => {
@@ -12,6 +13,8 @@ const DoctorSignup = () => {
   const [passwordCheck, setPasswordCheck] = useState("");
   const [passwordError, setPasswordError] = useState(false);
 
+  const navigate = useNavigate();
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -21,25 +24,35 @@ const DoctorSignup = () => {
 
     console.log(id, name, phone, major, email, password, gender);
 
-    fetch("http://localhost:8080/patient/signup", {
+    fetch("http://localhost:8080/doctor/signup", {
       method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
-        name: name,
-        gender: gender,
-        email: email,
-        password: password,
-        phone: phone,
-        major: major,
-        code: null
+        data : {
+            id: id,
+            name: name,
+            gender: gender,
+            email: email,
+            password: password,
+            phone: phone,
+            major: major,
+            code: null
+        }
       }),
     })
       .then((response) => response.json())
       .then((response) => {
-        if (response.result === "ok") {
+        console.log(response);
+        if (response.result === "OK") {
           return alert("회원가입 성공!");
         }
-        if (response.result !== "ok") {
+        if (response.result === "Fail") {
           alert(response.content);
+        }
+        else {
+            alert('잘못된 시도입니다');
         }
       });
   };
@@ -69,6 +82,10 @@ const DoctorSignup = () => {
     //비밀번호를 입력할때마다 password 를 검증하는 함수
     setPasswordError(e.target.value !== password);
     setPasswordCheck(e.target.value);
+  };
+
+  const cancleHandler = () => {
+    navigate(-1);
   };
 
   return (
@@ -132,6 +149,9 @@ const DoctorSignup = () => {
       <div>
         <Button type="submit" htmlType="submit" onClick={onSubmit}>
           가입하기
+        </Button>
+        <Button style={{ backgroundColor: "ccc" }} onClick={cancleHandler}>
+          Cancel
         </Button>
       </div>
     </form>

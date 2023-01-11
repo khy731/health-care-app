@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/UI/Button";
 
 const PatientSignup = () => {
@@ -12,6 +13,8 @@ const PatientSignup = () => {
   const [passwordCheck, setPasswordCheck] = useState("");
   const [passwordError, setPasswordError] = useState(false);
 
+  const navigate = useNavigate();
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -23,23 +26,29 @@ const PatientSignup = () => {
 
     fetch("http://localhost:8080/patient/signup", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
+        id: id,
         name: name,
         gender: gender,
         email: email,
         password: password,
         phone: phone,
         born: born,
-        code: null
+        code: null,
       }),
     })
       .then((response) => response.json())
       .then((response) => {
-        if (response.result === "ok") {
+        if (response.result === "OK") {
           return alert("회원가입 성공!");
         }
-        if (response.result !== "ok") {
+        if (response.result !== "Fail") {
           alert(response.content);
+        } else {
+          alert("잘못된 시도입니다");
         }
       });
   };
@@ -71,6 +80,10 @@ const PatientSignup = () => {
     setPasswordCheck(e.target.value);
   };
 
+  const cancleHandler = () => {
+    navigate(-1);
+  };
+
   return (
     <form onSubmit={onSubmit}>
       <div>
@@ -82,8 +95,8 @@ const PatientSignup = () => {
         <label htmlFor="gender">성별</label>
         <br />
         <select name="gender" value={gender} onChange={onChangeGender}>
-            <option value="female">여자</option>
-            <option value="male">남자</option>
+          <option value="female">여자</option>
+          <option value="male">남자</option>
         </select>
       </div>
       <div>
@@ -94,7 +107,12 @@ const PatientSignup = () => {
       <div>
         <label htmlFor="email">이메일</label>
         <br />
-        <input name="email" type="email" value={email} onChange={onChangeEmail} />
+        <input
+          name="email"
+          type="email"
+          value={email}
+          onChange={onChangeEmail}
+        />
       </div>
       <div>
         <label htmlFor="born">생년월일</label>
@@ -131,7 +149,10 @@ const PatientSignup = () => {
       </div>
       <div>
         <Button type="submit" htmlType="submit" onClick={onSubmit}>
-          가입하기
+          Submit
+        </Button>
+        <Button style={{ backgroundColor: "ccc" }} onClick={cancleHandler}>
+          Cancel
         </Button>
       </div>
     </form>
