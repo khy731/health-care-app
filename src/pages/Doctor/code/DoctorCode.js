@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect} from 'react';
 
-import Card from '../../components/UI/Card';
-import Button from '../../components/UI/Button';
+import Card from '../../../components/UI/Card';
+import Button from '../../../components/UI/Button';
 
 const DoctorCode = (props) => {
     const [id, setId] = useState("");

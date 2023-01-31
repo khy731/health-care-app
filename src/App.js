@@ -1,17 +1,16 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DoctorLogin from "./pages/Doctor/DoctorLogin";
-import PatientLogin from "./pages/Patient/PatientLogin";
-import DoctorSignup from "./pages/Doctor/DoctorSignup";
-import PatientSignup from "./pages/Patient/PatientSignup";
+import DoctorLogin from "./pages/Doctor/login/DoctorLogin";
+import PatientLogin from "./pages/Patient/login/PatientLogin";
+import DoctorSignup from "./pages/Doctor/signup/DoctorSignup";
+import PatientSignup from "./pages/Patient/signup/PatientSignup";
 import Welcome from "./pages/Welcome";
-import DoctorCode from "./pages/Doctor/DoctorCode";
-import PatientCode from "./pages/Patient/PatientCode";
+import DoctorCode from "./pages/Doctor/code/DoctorCode";
+import PatientCode from "./pages/Patient/code/PatientCode";
 import Doctor from "./pages/Doctor/Doctor";
 import Patient from "./pages/Patient/Patient";
 import DoctorReservation from "./pages/Doctor/Reservation/DoctorReservation";
 import PatientReservation from "./pages/Patient/Reservation/PatientReservation";
-import DoctorReserveInfo from "./components/Doctor/Reservation/DoctorReserveInfo";
 
 
 function App() {
