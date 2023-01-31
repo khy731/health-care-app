@@ -39,9 +39,7 @@ const Doctor = () => {
         <Link to="/doctor/code">코드 발급받기</Link>
       </div>
       <div>
-        <DoctorPatientList patientData={doctorData.patientInfo} />
-        <DoctorReserveList />
-        <DoctorPatientInfo />
+
       </div>
     </>
   );
