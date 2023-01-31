@@ -1,8 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import DoctorPatientInfo from "../../components/Doctor/DoctorPatientInfo";
-import DoctorPatientList from "../../components/Doctor/DoctorPatientList";
-import DoctorReserveList from "../../components/Doctor/DotorReserveList";
 import DoctorHeader from "../../components/Header/DoctorHeader";
 import UseFetch from "../../Hook/UseFetch";
 

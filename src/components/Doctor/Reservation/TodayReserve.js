@@ -1,18 +1,17 @@
-import TodayReserveList from "./TodayReserveList";
+import Card from '../../UI/Card';
+import DoctorReserveList from './DoctorReserveList';
 
 const TodayReserve = ({ data }) => {
     
   return (
     <>
-      <div>
-        <h2>금일 예약 정보</h2>
-      </div>
-      <div>
-        <h4>금일 {data.length}개의 예약이 있습니다. </h4>
-      </div>
-      {data.map(v => {
-        <TodayReserveList list={v} />
-      })}
+        <div>
+            <h2>금일 예약 정보</h2>
+        </div>
+        <Card>
+            <div>진료가 예정되어 있습니다</div>
+            {data.map(v => <DoctorReserveList data={v} />)}
+        </Card>
     </>
   );
 };

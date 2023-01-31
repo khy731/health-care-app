@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import PatientHeader from "../../components/Header/PatientHeader";
 import UseFetch from "../../Hook/UseFetch";
 
@@ -20,7 +19,6 @@ const Patient = () => {
           name: res.name,
           email: res.email,
           code: res.code,
-          // 환자 홈 만든 후 추가
         });
       }
     }
