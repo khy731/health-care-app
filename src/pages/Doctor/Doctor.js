@@ -31,6 +31,10 @@ const Doctor = () => {
 
   console.log(doctorData);
 
+/*   <DoctorPatientList patientData={doctorData.patientInfo} />
+  <DoctorReserveList />
+  <DoctorPatientInfo /> */
+
   return (
     <>
       <div>

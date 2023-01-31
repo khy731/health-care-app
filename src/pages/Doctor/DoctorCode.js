@@ -19,7 +19,8 @@ const DoctorCode = (props) => {
   const DoctorCodeHandler = (event) => {
     event.preventDefault();
 
-    setCode(Math.random().toString(16).slice(2, 8));
+    const newCode = Math.random().toString(16).slice(2, 8);
+    setCode(newCode);
     console.log(code);
 
     fetch(`http://localhost:8080/doctor/${id}/code`, {
