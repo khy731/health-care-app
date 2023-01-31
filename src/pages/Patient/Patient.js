@@ -24,8 +24,6 @@ const Patient = () => {
     }
   });
 
-  console.log(patientData);
-
   return (
     <>
       <PatientHeader />

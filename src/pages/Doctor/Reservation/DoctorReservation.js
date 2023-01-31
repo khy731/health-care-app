@@ -6,7 +6,8 @@ import UseFetch from "../../../Hook/UseFetch";
 
 const DoctorReservation = () => {
   const [id, setId] = useState("");
-  const [reserveData, setReserveData] = useState({});
+  const [reserveData, setReserveData] = useState([]);
+  const [todayData, setTodayData] = useState([]);
 
   useEffect(() => {
     if (sessionStorage.getItem("doctor_id") === null) {
@@ -19,24 +20,22 @@ const DoctorReservation = () => {
       setReserveData(res);
     }
   });
+
   const date = new Date();
 
   const year = date.getFullYear();
   const month = ('0' + (date.getMonth() + 1)).slice(-2);
   const day = ('0' + date.getDate()).slice(-2);
   const todayDate = year + '/' + month + '/' + day;
-  console.log(todayDate);
 
-  const todayReserve = reserveData.filter((v) => v.res_date === todayDate);
-
-  const dummy = [
-    {res_time: 1}
-  ]
-
+  useEffect(() => {
+    const todayReserve = reserveData.filter((v) => v.res_date === todayDate);
+    setTodayData(todayReserve);
+  }, [reserveData]);
   return (
     <>
       <DoctorHeader />
-      <TodayReserve data={todayReserve} />
+      <TodayReserve data={todayData} />
       <DoctorReserveInfo data={reserveData} />
     </>
   );

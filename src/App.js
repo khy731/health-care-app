@@ -31,7 +31,6 @@ function App() {
           <Route path="/patient/code" element={<PatientCode />} />
           <Route path="/doctor/reservation" element={<DoctorReservation />} />
           <Route path="/patient/reservation" element={<PatientReservation /> } />
-          <Route path="/doctor/test" element={<DoctorReserveInfo />} />
           <Route path="*" />
         </Routes>
       </div>
