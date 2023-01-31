@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../../Hook/UseFetch";
-import Button from "../../components/UI/Button";
+import Button from "../../UI/Button";
 
 const ReserveSubmit = ( {id, doctorData} ) => {
   const [doctor, setDoctor] = useState("");
@@ -46,7 +46,7 @@ const ReserveSubmit = ( {id, doctorData} ) => {
       .then((response) => {
         console.log(response);
         if (response.result === "OK") {
-            setTimeTable(res.res_time);
+            setTimeTable(response.res_time);
             const availableData = timeData.filter((v,i) => timeTable.includes(i+1));
             setAvailableTime(availableData);
         }
@@ -67,10 +67,10 @@ const ReserveSubmit = ( {id, doctorData} ) => {
       },
       body: JSON.stringify({
         data : {
-            patient_id: id,
-            sel_doctor_id: doctor,
+            patiector_id: doctor,
             contents: symptom,
-            res_date: date,
+            res_datnt_id: id,
+            sel_doe: date,
             res_time: time
         }
       }),

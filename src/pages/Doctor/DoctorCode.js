@@ -50,10 +50,11 @@ const DoctorCode = (props) => {
 
   return (
       <Card>
-        <h3>의사 코드</h3>
+        <h2>연결 코드 발급</h2>
         <form onSubmit={DoctorCodeHandler}>
+            <label>코드를 발급하면 환자와 연결이 가능해집니다.</label>
           <input id="username" type="text" value={code}/>
-          <Button type="submit">코드 발급받기</Button>
+          <Button type="submit">발급받기</Button>
         </form>
       </Card>
   );

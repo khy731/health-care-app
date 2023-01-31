@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import DoctorPatientInfo from "../../components/Doctor/DoctorPatientInfo";
 import DoctorPatientList from "../../components/Doctor/DoctorPatientList";
 import DoctorReserveList from "../../components/Doctor/DotorReserveList";
+import DoctorHeader from "../../components/Header/DoctorHeader";
 import UseFetch from "../../Hook/UseFetch";
 
 const Doctor = () => {
@@ -19,11 +20,11 @@ const Doctor = () => {
       if (res !== null && res !== undefined) {
         setIsLogin(true);
         setDoctorData({
-            name: res.name,
-            email: res.email,
-            major: res.major,
-            code: res.code,
-            patientInfo: res.patient_id
+          name: res.name,
+          email: res.email,
+          major: res.major,
+          code: res.code,
+          patientInfo: res.patient_id,
         });
       }
     }
@@ -31,19 +32,22 @@ const Doctor = () => {
 
   console.log(doctorData);
 
-/*   <DoctorPatientList patientData={doctorData.patientInfo} />
-  <DoctorReserveList />
-  <DoctorPatientInfo /> */
-
   return (
     <>
+      <DoctorHeader />
       <div>
-        <Link to="/doctor/login">로그인</Link>
-        <Link to="/doctor/signup">회원가입</Link>
-        <Link to="/doctor/code">코드 발급받기</Link>
-      </div>
-      <div>
-
+        <div>
+          <h2>금일 예약</h2>
+          <div>content</div>
+        </div>
+        <div>
+          <h2>환자 목록</h2>
+          <div>content</div>
+        </div>
+        <div>
+            <h2>상세 정보</h2>
+            <div>content</div>
+        </div>
       </div>
     </>
   );

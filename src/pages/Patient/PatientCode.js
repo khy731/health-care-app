@@ -51,10 +51,11 @@ const PatientCode = (props) => {
 
   return (
       <Card>
-        <h3>환자 코드</h3>
+        <h2>연결 코드 입력</h2>
         <form onSubmit={PatientCodeHandler}>
+            <label>코드를 입력하면 담당의와 연결됩니다.</label>
           <input id="username" type="text" value={code} onChange={onChangeHandler} placeholder="코드를 입력하세요."/>
-          <Button type="submit">코드 매칭하기</Button>
+          <Button type="submit">입력하기</Button>
         </form>
       </Card>
   );

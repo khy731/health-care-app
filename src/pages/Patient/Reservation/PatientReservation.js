@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import PatientResInfo from "../../../components/Patient/Reservation/PatientResInfo";
 import ReserveSubmit from "../../../components/Patient/Reservation/ReserveSubmit";
 import PastSchedule from "./PastSchedule";
+import UseFetch from "../../../Hook/UseFetch";
 
 const PatientReservation = () => {
     const [id, setId] = useState("");
