@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useReducer } from "react";
-import Card from "../../components/UI/Card";
-import Button from "../../components/UI/Button";
+import Card from "../../../components/UI/Card";
+import Button from "../../../components/UI/Button";
 
 import classes from "./PatientLogin.module.css";
 import { useNavigate, Link } from "react-router-dom";

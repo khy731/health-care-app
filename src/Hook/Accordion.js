@@ -17,7 +17,7 @@ const Accordion = ({ title, content }) => {
           backgroundColor: "gray",
           width: "100%",
           height: "60px",
-          color: "#fff"
+          color: "#fff",
         }}
       >
         <h1 style={{ fontSize: "30px" }}>{title}</h1>
@@ -35,14 +35,19 @@ const Accordion = ({ title, content }) => {
             margin: "0",
             backgroundColor: "skyblue",
             color: "#fff",
-            padding: "10px"
+            padding: "10px",
           }}
         >
-          {content}
+          {content.map((v) => (
+            <ul>
+                <li>{v.res_date}</li>
+                <li>{v.doctor_name}</li>
+            </ul>
+          ))}
         </p>
       )}
     </>
   );
-}
+};
 
 export default Accordion;
