@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import DoctorPatientList from "../../components/Doctor/Home/DoctorPatientList";
+import TodayReserve from "../../components/Doctor/Reservation/TodayReserve";
 import DoctorHeader from "../../components/Header/DoctorHeader";
 import UseFetch from "../../Hook/UseFetch";
 
@@ -21,12 +23,11 @@ const Doctor = () => {
           major: res.major,
           code: res.code,
           patientInfo: res.patient_id,
+          reserve: res // 이후 추가
         });
       }
     }
   });
-
-  console.log(doctorData);
 
   return (
     <>
@@ -34,11 +35,11 @@ const Doctor = () => {
       <div>
         <div>
           <h2>금일 예약</h2>
-          <div>content</div>
+          <TodayReserve data={reserve} />
         </div>
         <div>
           <h2>환자 목록</h2>
-          <div>content</div>
+          <DoctorPatientList data={patientInfo} />
         </div>
         <div>
             <h2>상세 정보</h2>
