@@ -1,71 +1,60 @@
 .login {
-    width: 90%;
-    max-width: 40rem;
-    margin: 2rem auto;
-    padding: 2rem;
-  }
-  
+  max-width: 25rem;
+  margin: 2.2rem auto;
+  padding: 3rem;
+}
+
+.control {
+  margin: 0.7rem 0rem;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.control input {
+  flex: 5;
+  font: inherit;
+  font-size: smaller;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #BCBCBC;
+  background-color: #FAFAFA;
+}
+.control input:focus {
+  outline: none;
+  border-color: #5EBE79;
+}
+.control.invalid input {
+  border-color: #C64545;
+}
+
+.logintop{
+  color: #8A8A8A;
+  text-align: left;
+ }
+ .loginbottom{
+  color: #8A8A8A;
+  text-align: right;
+ }
+
+.cancel:hover {
+  opacity: 0.7;
+}
+.signup:hover {
+  opacity: 0.7;
+}
+
+.controlbutton,
+.controlbutton:disabled,
+.controlbutton:hover:disabled {
+  background: #C5DEC3;
+  border-color: #C5DEC3;
+  color: #000000;
+}
+
+@media (min-width: 780px) {
   .control {
-    margin: 1rem 0;
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
   }
-  
-  .control label,
-  .control input {
-    display: block;
-  }
-  
-  .control label {
-    font-weight: bold;
-    flex: 1;
-    color: #464646;
-    margin-bottom: 0.5rem;
-  }
-  
-  .control input {
-    flex: 3;
-    font: inherit;
-    padding: 0.35rem 0.35rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
-  
-  .control input:focus {
-    outline: none;
-    border-color: #a1bfc4;
-    background: #dbeffc;
-  }
-  
-  .control.invalid input {
-    border-color: rgb(146, 43, 43);
-    background: #f9dddd;
-  }
-  
-  .actions {
-    text-align: center;
-  }
-
-  .cancel {
-    background: #ccc;
-    border-color: #ccc;
-    color: #666666;
-  }
-
-  .cancel:hover {
-    background-color: #ccc;
-    opacity: 0.7;
-  }
-  .cancel:active {
-    background-color: #000000;
-    opacity: 0.5;
-  }
-  
-  @media (min-width: 768px) {
-    .control {
-      align-items: center;
-      flex-direction: row;
-    }
-  
-  }
+}

@@ -1,0 +1,39 @@
+.choosebox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-items: flex-end;
+    padding: 2rem;
+    margin-top: 1rem;
+    background-color: #FAFAFA;
+}
+
+.choose{
+    width: 200rem;
+    font-size: 17px;
+    color: #8A8A8A;
+    margin: 1.5rem 1rem 0rem 1rem;
+    text-decoration: underline;
+}
+
+.patientbox,
+.doctorbox{
+    font-size: 20px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    height: 95px;
+    margin: 1rem 0rem 1rem 0rem;
+    padding: 3rem 5rem 3rem 5rem;
+    border: 1px solid #8A8A8A;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+i {
+    font-size: 55px;
+    color: black;
+}

@@ -1,0 +1,50 @@
+.control{
+    margin-bottom: 10px;
+    display: flex;
+    width: 25rem;
+    align-items: stretch;
+    flex-direction: column;
+    text-align: left;
+  }
+  select,
+  .control input {
+    font: inherit;
+    font-size: smaller;
+    padding: 0.5rem 1rem;
+    margin-top: 3px;
+    border-radius: 3px;
+    border: 1px solid #BCBCBC;
+    background-color: #FFFFFF;
+  }
+  .control input:focus {
+    outline: none;
+    border-color: #5EBE79;
+  }
+  select:focus{
+    outline: none;
+    border-color: #5EBE79;
+  }
+
+  .signupbox{
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    justify-content: center;
+    background-color: #FAFAFA;
+  }
+
+  .signupbottom{
+    margin-top: 15px;
+    color: #8A8A8A;
+    text-align: right;
+   }
+
+  .controlbutton {
+  background: #C5DEC3;
+  border-color: #C5DEC3;
+  color: #000000;
+  }
+
+  .cancel:hover {
+    opacity: 0.7;
+  }

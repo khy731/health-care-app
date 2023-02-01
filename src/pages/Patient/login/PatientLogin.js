@@ -85,17 +85,23 @@ const PatientLogin = (props) => {
   };
 
   return (
+    <div>
+      <br/><br/>
+      <img src={require("../../../components/Header/logo.png")} 
+      alt="logo" width={280}/>
     <Card className={classes.login}>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} autoComplete="off">
+        <div className={classes.logintop}>PATIENT</div>
         <div
           className={classes.control}
         >
-          <label htmlFor="id">ID</label>
+          <label htmlFor="id"></label>
           <input
             type="id"
             id="id"
             value={id}
             onChange={idChangeHandler}
+            placeholder="ID"
           />
         </div>
         <div
@@ -103,28 +109,33 @@ const PatientLogin = (props) => {
             passwordState.isValid === false ? classes.invalid : ""
           }`}
         >
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password"></label>
           <input
             type="password"
             id="password"
             value={passwordState.value}
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
+            placeholder="Password"
           />
         </div>
-        <div className={classes.actions}>
+        <div>
           <Button type="submit" disabled={!formIsValid}>
-            Login
-          </Button>
-          <Button className={classes.cancel} onClick={cancleHandler}>
-            Cancel
+            LOGIN
           </Button>
         </div>
-        <div>
-        <Link to="/patient/signup">회원가입하러 가기</Link>
-      </div>
+        <br></br>
+        <div className={classes.loginbottom}>
+          <span className={classes.signup}>
+            <Link to="/patient/signup">SIGN UP</Link>
+          </span>
+          <span className={classes.cancel} onClick={cancleHandler}>
+             CANCEL
+          </span>
+        </div>
       </form>
     </Card>
+    </div>
   );
 };
 
