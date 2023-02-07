@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../../components/UI/Button";
 
 const DoctorSignup = () => {
+    //휴대전화
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
@@ -31,7 +32,7 @@ const DoctorSignup = () => {
       },
       body: JSON.stringify({
         data : {
-            id: id,
+            doctor_id: id,
             name: name,
             gender: gender,
             email: email,
@@ -46,7 +47,8 @@ const DoctorSignup = () => {
       .then((response) => {
         console.log(response);
         if (response.result === "OK") {
-          return alert("회원가입 성공!");
+          alert("회원가입 성공!");
+          navigate('/doctor');
         }
         if (response.result === "Fail") {
           alert(response.content);

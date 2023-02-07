@@ -25,7 +25,7 @@ const PatientCode = (props) => {
     event.preventDefault();
 
     fetch(`http://localhost:8080/patient/${id}/code`, {
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },

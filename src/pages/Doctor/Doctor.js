@@ -23,7 +23,7 @@ const Doctor = () => {
           major: res.major,
           code: res.code,
           patientInfo: res.patient_id,
-          reserve: res // 이후 추가
+          reserve: res.today_res_list, 
         });
       }
     }
