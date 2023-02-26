@@ -1,5 +1,4 @@
 const DoctorReserveList = ({ data }) => {
-
   const timeData = [
     { num: 1, time: "9:00" },
     { num: 2, time: "9:30" },
@@ -11,7 +10,7 @@ const DoctorReserveList = ({ data }) => {
     { num: 8, time: "15:30" },
   ];
 
-  const timeMatch = timeData.filter((v) => v.num === data.res_time);
+  const timeMatch = timeData.find((v) => v.num === data.res_time);
 
   return (
     <>
