@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import Card from "../../UI/Card";
+
 const DoctorReserveList = ({ data }) => {
   const timeData = [
     { num: 1, time: "9:00" },
@@ -10,17 +13,26 @@ const DoctorReserveList = ({ data }) => {
     { num: 8, time: "15:30" },
   ];
 
-  const timeMatch = timeData.find((v) => v.num === data.res_time);
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const timeMatch = timeData.find((v) => v.num === data.res_time);
+    setTime(timeMatch.time);
+  }, [data.res_time]);
+
+  const showPatientInfo = () => {
+    console.log("환자 정보 버튼이 클릭되었습니다.");
+  };
 
   return (
-    <>
+    <Card>
       <ul>
-        <li>{timeMatch.time}</li>
+        <li>{time}</li>
         <li>{data.patient_id.name}</li>
         <li>{data.contents}</li>
       </ul>
-      <button>환자 정보</button>
-    </>
+      <button onClick={showPatientInfo}>환자 정보</button>
+    </Card>
   );
 };
 
