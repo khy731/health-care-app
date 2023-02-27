@@ -7,31 +7,37 @@ const PatientDiaList = () => {
   const [id, setId] = useState("");
 
   useEffect(() => {
-    if (sessionStorage.getItem("patient_id") === null) {
+    const patientId = sessionStorage.getItem("patient_id");
+    if (!patientId) {
       console.log("회원 정보가 없습니다. 로그인하세요.");
-    } else {
-      setId(sessionStorage.getItem("patient_id"));
+      return;
     }
+    setId(patientId);
   }, []);
 
   useEffect(() => {
-    if (id) {
-      fetch(`http://localhost:8080/patient/${id}/diagnosis`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
+    async function fetchTreatData() {
+      try {
+        if (id) {
+          const response = await fetch(
+            `http://localhost:8080/patient/${id}/diagnosis`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const data = await response.json();
           if (data !== null && data !== undefined) {
-            setTreatData(data);
+            setTreatData(data.data.diagnosis_list);
           }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+        }
+      } catch (error) {
+        console.error(error);
+      }
     }
+    fetchTreatData();
   }, [id]);
 
   return (
