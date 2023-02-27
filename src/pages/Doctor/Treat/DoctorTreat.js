@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Diagnosis from "../../../components/Doctor/Treat/Diagnosis";
 import TreatList from "../../../components/Doctor/Treat/TreatList";
 import TreatPatientList from "../../../components/Doctor/Treat/TreatPatientList";

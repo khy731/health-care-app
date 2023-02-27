@@ -4,19 +4,32 @@ import TreatPatientInfo from "./TreatPatientInfo";
 
 const TreatPatientList = ({ setSelectedList, setSelectedTreat }) => {
   const [patientInfo, setPatientInfo] = useState([]);
-  const [id, setId] = useState("");
+  const [doctorId, setDoctorId] = useState("");
 
   useEffect(() => {
-    if (sessionStorage.getItem("doctor_id") === null) {
+    const doctorIdFromSessionStorage = sessionStorage.getItem("doctor_id");
+    if (doctorIdFromSessionStorage === null) {
       console.log("회원 정보가 없습니다. 로그인하세요.");
     } else {
-      setId(sessionStorage.getItem("doctor_id"));
-      const res = UseFetch(`http://localhost:8080/doctor/${id}/diagnosis`).data;
-      if (res !== null && res !== undefined) {
-        setPatientInfo(res);
-      }
+      setDoctorId(doctorIdFromSessionStorage);
     }
-  });
+  }, []);
+
+  useEffect(() => {
+    const fetchDiagnosisData = async () => {
+      if (doctorId !== "") {
+        const response = await fetch(`http://localhost:8080/doctor/${doctorId}/diagnosis`);
+        if (response.ok) {
+          const data = await response.json();
+          if (data !== null && data !== undefined) {
+            setPatientInfo(data);
+          }
+        }
+      }
+    };
+
+    fetchDiagnosisData();
+  }, [doctorId]);
 
   return (
     <Card>
@@ -26,11 +39,12 @@ const TreatPatientList = ({ setSelectedList, setSelectedTreat }) => {
       <ul>
         <li>이름</li>
         <li>성별</li>
-        <li>나이(만)</li>
         <li>생년월일</li>
+        <li>전화번호</li>
       </ul>
       {patientInfo.map((v) => (
         <TreatPatientInfo
+          key={v.patient_id}
           data={v}
           setSelectedList={setSelectedList}
           setSelectedTreat={setSelectedTreat}

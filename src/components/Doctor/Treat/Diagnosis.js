@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
+import Button from "../../UI/Button";
 import Card from "../../UI/Card";
 
-const Diagnosis = ({ selctedTreat, selectedDiaNum }) => {
+const Diagnosis = ({ selectedTreat, selectedDiaNum }) => {
   const [isShowed, setIsShowed] = useState(false);
   const [preName, setPreName] = useState("");
   const [contents, setContents] = useState("");
   const [oneDay, setOneDay] = useState("");
   const [total, setTotal] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const preNameHandler = (e) => {
     setPreName(e.target.value);
@@ -24,41 +27,51 @@ const Diagnosis = ({ selctedTreat, selectedDiaNum }) => {
     setTotal(e.target.value);
   }
 
-
   const clickHandler = (e) => {
     e.preventDefault();
     setIsShowed(true);
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:8080/doctor/${selectedDiaNum}/prescription`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data: {
-          contents,
-          pre_name: preName,
-          one_day: oneDay,
-          total,
-        },
-      }),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        if (response.result === "OK") {
-          return alert("처방이 완료되었습니다");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(
+        `http://localhost:8080/doctor/${selectedDiaNum}/prescription`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            data: {
+              contents,
+              pre_name: preName,
+              one_day: oneDay,
+              total,
+            },
+          }),
         }
-        if (response.result === "Fail") {
-          alert(response.content);
-        } else {
-          alert("잘못된 시도입니다");
-        }
-      });
+      );
+
+      if (!response.ok) {
+        throw new Error("처방이 완료되지 않았습니다.");
+      }
+
+      const data = await response.json();
+
+      if (data.result === "OK") {
+        alert("처방이 완료되었습니다.");
+      } else {
+        alert("처방에 실패하였습니다.");
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -71,27 +84,29 @@ const Diagnosis = ({ selctedTreat, selectedDiaNum }) => {
           <div>
             <label>이름</label>
             <br />
-            <input value={selctedTreat.name}></input>
+            <input value={selectedTreat.name}></input>
           </div>
           <div>
             <label>생년월일</label>
             <br />
-            <input value={selctedTreat.born} />
+            <input value={selectedTreat.born} />
           </div>
           <div>
             <label>특이사항(진단내용)</label>
             <br />
-            <textarea placeholder="ex.기침" />
+            <textarea
+              placeholder="ex.기침"
+              value={selectedTreat.note}
+              readOnly
+            />
           </div>
           <div>
             <label>증상</label>
             <br />
-            <textarea placeholder="ex. 감기" />
+            <textarea placeholder="ex. 감기" value={selectedTreat.symptom} readOnly />
           </div>
           <div>
-            <Button type="submit" htmlType="submit">
-              진단하기
-            </Button>
+            <button type="submit">진단하기</button>
           </div>
         </form>
       </Card>
