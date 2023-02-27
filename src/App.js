@@ -11,6 +11,8 @@ import Doctor from "./pages/Doctor/Doctor";
 import Patient from "./pages/Patient/Patient";
 import DoctorReservation from "./pages/Doctor/Reservation/DoctorReservation";
 import PatientReservation from "./pages/Patient/Reservation/PatientReservation";
+import DoctorTreat from "./pages/Doctor/Treat/DoctorTreat";
+import PatientTreat from "./pages/Patient/Treat/PatientTreat";
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
           <Route path="/patient/code" element={<PatientCode />} />
           <Route path="/doctor/reservation" element={<DoctorReservation />} />
           <Route path="/patient/reservation" element={<PatientReservation /> } />
+          <Route path="/doctor/treat" element={<DoctorTreat />} />
           <Route path="*" />
         </Routes>
       </div>
