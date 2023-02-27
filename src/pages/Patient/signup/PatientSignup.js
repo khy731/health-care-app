@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/UI/Button";
 
+import classes from "./PatientSignup.module.css";
 const PatientSignup = () => {
   const [id, setId] = useState("");
   const [name, setName] = useState("");
@@ -85,48 +86,19 @@ const PatientSignup = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <div>
-        <label htmlFor="name">이름</label>
-        <br />
-        <input name="name" type="text" value={name} onChange={onChangeName} />
-      </div>
-      <div>
-        <label htmlFor="gender">성별</label>
-        <br />
-        <select name="gender" value={gender} onChange={onChangeGender}>
-          <option value="female">여자</option>
-          <option value="male">남자</option>
-        </select>
-      </div>
-      <div>
+    <div>
+      <br/>
+      <img src={require("../../../components/Header/logo.png")} 
+      alt="logo" width={280}/>
+      <br/><br/>
+    <div className={classes.signupbox}>
+    <form onSubmit={onSubmit} autocomplete="off">
+      <div className={classes.control}>
         <label htmlFor="id">아이디</label>
-        <br />
         <input name="id" type="text" value={id} onChange={onChangeId} />
       </div>
-      <div>
-        <label htmlFor="email">이메일</label>
-        <br />
-        <input
-          name="email"
-          type="email"
-          value={email}
-          onChange={onChangeEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor="born">생년월일</label>
-        <br />
-        <input name="born" type="date" value={born} onChange={onChangeBorn} />
-      </div>
-      <div>
-        <label htmlFor="phone">휴대폰</label>
-        <br />
-        <input name="phone" type="tel" value={phone} onChange={onChangePhone} />
-      </div>
-      <div>
+      <div className={classes.control}>
         <label htmlFor="password">비밀번호</label>
-        <br />
         <input
           name="password"
           type="password"
@@ -134,9 +106,8 @@ const PatientSignup = () => {
           onChange={onChangePassword}
         />
       </div>
-      <div>
-        <label htmlFor="password-check">비밀번호 체크</label>
-        <br />
+      <div className={classes.control}>
+        <label htmlFor="password-check">비밀번호 확인</label>
         <input
           name="password-check"
           type="password"
@@ -147,15 +118,49 @@ const PatientSignup = () => {
           <div style={{ color: "red" }}>비밀번호가 일치하지 않습니다.</div>
         )}
       </div>
+      <div className={classes.control}>
+        <label htmlFor="name">이름</label>
+        <input name="name" type="text" value={name} onChange={onChangeName} />
+      </div>
+      <div className={classes.control}>
+        <label htmlFor="gender">성별</label>
+        <select name="gender" value={gender} onChange={onChangeGender}>
+          <option disabled selected value="">성별</option>
+          <option value="female">여자</option>
+          <option value="male">남자</option>
+        </select>
+      </div>
+      <div className={classes.control}>
+        <label htmlFor="born">생년월일</label>
+        <input name="born" type="date" value={born} onChange={onChangeBorn} />
+      </div>
+      <div className={classes.control}>
+        <label htmlFor="email">이메일</label>
+        <input
+          name="email"
+          type="email"
+          value={email}
+          onChange={onChangeEmail}
+        />
+      </div>
+      <div className={classes.control}>
+        <label htmlFor="phone">휴대전화</label>
+        <input name="phone" type="tel" value={phone} onChange={onChangePhone} />
+      </div>
+      <br/>
       <div>
         <Button type="submit" htmlType="submit" onClick={onSubmit}>
-          Submit
-        </Button>
-        <Button style={{ backgroundColor: "ccc" }} onClick={cancleHandler}>
-          Cancel
+          계정 생성
         </Button>
       </div>
+      <div className={classes.signupbottom}>
+      <span className={classes.cancel} onClick={cancleHandler}>
+             CANCEL
+      </span>
+      </div>
     </form>
+    </div>
+    </div>
   );
 };
 

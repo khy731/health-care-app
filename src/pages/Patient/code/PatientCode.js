@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PatientHeader from "../../../components/Header/PatientHeader";
 
 import Card from '../../../components/UI/Card';
 import Button from '../../../components/UI/Button';
 
+import classes from "./PatientCode.module.css";
 const PatientCode = (props) => {
 
     const [id, setId] = useState("");
@@ -48,15 +50,22 @@ const PatientCode = (props) => {
     }
 
     return (
-        <Card>
-            <h2>연결 코드 입력</h2>
-            <form onSubmit={PatientCodeHandler}>
-                <label>코드를 입력하면 담당의와 연결됩니다.</label>
-                <input id="username" type="text" value={code} onChange={onChangeHandler} placeholder="코드를 입력하세요."/>
-                <Button type="submit">입력하기</Button>
-            </form>
-        </Card>
-    );
+        <div>
+          <PatientHeader />
+          <Card autocomplete="off">
+            <div className={classes.codebox}>
+            <div className={classes.codecenter}>
+              <div className={classes.codetop}>연결 코드 입력</div>
+              <div className={classes.codemiddle}>코드를 입력하면 담당의와 연결됩니다.</div>
+              <form onSubmit={PatientCodeHandler} autoComplete="off">
+                <input className={classes.control} id="username" type="text" value={code} onChange={onChangeHandler} placeholder="코드를 입력하세요."/>
+                <Button className={classes.controlbutton}type="submit">입력하기</Button>
+              </form>
+            </div>
+            </div>
+          </Card>
+          </div>
+      );
 };
 
 export default PatientCode;

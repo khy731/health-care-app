@@ -1,8 +1,10 @@
 import React, { useState, useEffect} from 'react';
+import DoctorHeader from "../../../components/Header/DoctorHeader";
 
 import Card from '../../../components/UI/Card';
 import Button from '../../../components/UI/Button';
 
+import classes from "./DoctorCode.module.css";
 const DoctorCode = (props) => {
   const [id, setId] = useState("");
   const [code, setCode] = useState("");
@@ -50,15 +52,22 @@ const DoctorCode = (props) => {
     }
   }
 
-  return (
-    <Card>
-      <h2>연결 코드 발급</h2>
-      <form onSubmit={handleDoctorCodeSubmit}>
-        <label>코드를 발급하면 환자와 연결이 가능해집니다.</label>
-        <input id="username" type="text" value={code} readOnly />
-        <Button type="submit">발급받기</Button>
-      </form>
-    </Card>
+return (
+  <div>
+      <DoctorHeader />
+    <Card autocomplete="off">
+      <div className={classes.codebox}>
+      <div className={classes.codecenter}>
+        <div className={classes.codetop}>연결 코드 발급</div>
+        <div className={classes.codemiddle}>코드를 발급하면 환자와 연결이 가능해집니다.</div>
+        <form onSubmit={handleDoctorCodeSubmit} autoComplete="off">
+          <input className={classes.control} id="username" type="text" value={code} readOnly/>
+          <Button className={classes.controlbutton} type="submit">발급받기</Button>
+        </form>
+      </div>
+      </div>
+  </Card>
+  </div>
   );
 };
 
