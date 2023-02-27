@@ -3,12 +3,13 @@ import Card from "../../UI/Card";
 import DoctorReserveList from "./DoctorReserveList";
 
 const DoctorReserveInfo = ({ data }) => {
-  const [selectedDate, setSelectedDate] = useState("2023-01-01");
+  const [selectedDate, setSelectedDate] = useState(null);
   const [reserveList, setReserveList] = useState([]);
 
   useEffect(() => {
     const equalData = data.filter((v) => v.res_date === selectedDate);
     setReserveList(equalData);
+    console.log(data, selectedDate, equalData);
   }, [data, selectedDate]);
 
   const onDateHandler = (e) => {
@@ -16,7 +17,7 @@ const DoctorReserveInfo = ({ data }) => {
     const year = date.getFullYear();
     const month = ("0" + (date.getMonth() + 1)).slice(-2);
     const day = ("0" + date.getDate()).slice(-2);
-    const clickedDate = `${year}-${month}-${day}`;
+    const clickedDate = `${year}/${month}/${day}`;
     setSelectedDate(clickedDate);
   };
 
