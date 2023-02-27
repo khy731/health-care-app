@@ -9,10 +9,11 @@ const DoctorReservation = () => {
   const [todayData, setTodayData] = useState([]);
 
   useEffect(() => {
-    if (sessionStorage.getItem("doctor_id") === null) {
+    const doctorId = sessionStorage.getItem("doctor_id");
+    if (doctorId === null) {
       console.log("회원 정보가 없습니다. 로그인하세요.");
     } else {
-      setId(sessionStorage.getItem("doctor_id"));
+      setId(doctorId);
     }
   }, []);
 
@@ -26,7 +27,9 @@ const DoctorReservation = () => {
         console.log(error);
       }
     };
-    fetchData();
+    if (id) {
+      fetchData();
+    }
   }, [id]);
 
   const date = new Date();
