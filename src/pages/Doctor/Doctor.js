@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import DoctorPatientList from "../../components/Doctor/Home/DoctorPatientList";
+import HomeToday from "../../components/Doctor/Home/HomeToday";
 import TodayReserve from "../../components/Doctor/Reservation/TodayReserve";
 import DoctorHeader from "../../components/Header/DoctorHeader";
 
@@ -24,26 +25,42 @@ const Doctor = () => {
         }
         const res = await fetch(`http://localhost:8080/doctor/${id}`);
         const data = await res.json();
-        
+
         if (data !== null && data !== undefined) {
           setIsLogin(true);
           setDoctorData({
-            name: data.name,
-            email: data.email,
-            major: data.major,
-            code: data.code,
-            patientInfo: data.patient_id,
-            reserve: data.today_res_list, 
+            name: data.data.name,
+            email: data.data.email,
+            major: data.data.major,
+            code: data.data.code,
+            patientInfo: data.data.patient_id,
+            reserve: [
+              {
+                contents: "복통",
+                res_time: "10:00",
+                sel_doctor_id: "khy731",
+                name: "환자1",
+                born: "2001.07.31",
+                phone: "010-7727-1321"
+              },{
+                contents: "두통",
+                res_time: "14:00",
+                sel_doctor_id: "khy731",
+                name: "환자2",
+                born: "2004.01.31",
+                phone: "010-1111-1321"
+              },
+            ],
           });
         }
       } catch (error) {
         console.log(error);
       }
     }
-  
+
     fetchData();
   }, [id]);
-  
+
 
   return (
     <>
@@ -52,7 +69,7 @@ const Doctor = () => {
         {doctorData.reserve && (
           <div>
             <h2>금일 예약</h2>
-            <TodayReserve data={doctorData.reserve} />
+            <HomeToday data={doctorData.reserve} />
           </div>
         )}
         {doctorData.patientInfo && (
@@ -62,8 +79,8 @@ const Doctor = () => {
           </div>
         )}
         <div>
-            <h2>상세 정보</h2>
-            <div>content</div>
+          <h2>상세 정보</h2>
+          <div>content</div>
         </div>
       </div>
     </>

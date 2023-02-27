@@ -22,7 +22,7 @@ const DoctorReservation = () => {
       try {
         const res = await fetch(`http://localhost:8080/doctor/${id}/reservation`);
         const data = await res.json();
-        setReserveData(data);
+        setReserveData(data.data);
       } catch (error) {
         console.log(error);
       }
