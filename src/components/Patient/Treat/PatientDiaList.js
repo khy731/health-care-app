@@ -11,14 +11,28 @@ const PatientDiaList = () => {
       console.log("회원 정보가 없습니다. 로그인하세요.");
     } else {
       setId(sessionStorage.getItem("patient_id"));
-      const res = UseFetch(
-        `http://localhost:8080/patient/${id}/diagnosis`
-      ).data;
-      if (res !== null && res !== undefined) {
-        setTreatData(res);
-      }
     }
-  });
+  }, []);
+
+  useEffect(() => {
+    if (id) {
+      fetch(`http://localhost:8080/patient/${id}/diagnosis`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data !== null && data !== undefined) {
+            setTreatData(data);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [id]);
 
   return (
     <>
@@ -36,7 +50,7 @@ const PatientDiaList = () => {
           <li>총 복용(일)</li>
         </ul>
         {treatData.map((v) => (
-          <PatientDiaInfo data={v} />
+          <PatientDiaInfo key={v.dia_num} data={v} />
         ))}
       </Card>
     </>
