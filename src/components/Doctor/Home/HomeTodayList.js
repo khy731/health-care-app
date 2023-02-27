@@ -1,5 +1,4 @@
 const HomeTodayList = ( {info} ) => {
-    console.log(info);
     return(
         <ul>
             <li>{info.name}</li>

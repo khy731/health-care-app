@@ -2,7 +2,6 @@ import Card from "../../UI/Card";
 import HomeTodayList from "./HomeTodayList";
 
 const HomeToday = ({ data }) => {
-  console.log(data);
   return (
     <>
       <div>

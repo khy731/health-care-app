@@ -1,9 +1,10 @@
-const PatientInfoList = ( {info} ) => {
+const PatientInfoList = ( {data} ) => {
+    console.log(data);
     return(
         <ul>
-            <li>{info.name}</li>
-            <li>{info.born}</li>
-            <li>{info.phone}</li>
+            <li>{data.name}</li>
+            <li>{data.born}</li>
+            <li>{data.phone}</li>
         </ul>
     )
 }
