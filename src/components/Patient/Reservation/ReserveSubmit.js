@@ -70,7 +70,7 @@ const ReserveSubmit = ({ id, doctorData }) => {
             patient_id: id,
             sel_doctor_id: doctor,
             contents: symptom,
-            res_date: date,
+            res_date: date.replace(/-/g, "/"),
             res_time: time[0],
           },
         }),
