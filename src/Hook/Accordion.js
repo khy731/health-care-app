@@ -1,13 +1,11 @@
 import { useState } from "react";
 
 const Accordion = ({ title, content }) => {
-  // 토글을 닫아두기 위해 초기값을 false로 설정해두었다.
   const [isCheck, setCheck] = useState(false);
 
   return (
     <>
       <div
-        // 간단하게 내부에 css스타일링
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -30,21 +28,24 @@ const Accordion = ({ title, content }) => {
         </button>
       </div>
       {isCheck && (
-        <p
+        <ul
           style={{
+            listStyleType: "none",
             margin: "0",
+            padding: "0",
             backgroundColor: "skyblue",
             color: "#fff",
-            padding: "10px",
           }}
         >
-          {content.map((v) => (
-            <ul>
-                <li>{v.res_date}</li>
-                <li>{v.doctor_name}</li>
-            </ul>
+          {content.map((item, index) => (
+            <li key={index}>
+              <ul style={{ listStyleType: "disc" }}>
+                <li>{item.res_date}</li>
+                <li>{item.doctor_name}</li>
+              </ul>
+            </li>
           ))}
-        </p>
+        </ul>
       )}
     </>
   );

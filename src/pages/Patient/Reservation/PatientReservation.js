@@ -2,33 +2,53 @@ import { useEffect, useState } from "react";
 import PatientResInfo from "../../../components/Patient/Reservation/PatientResInfo";
 import ReserveSubmit from "../../../components/Patient/Reservation/ReserveSubmit";
 import PastSchedule from "./PastSchedule";
-import UseFetch from "../../../Hook/UseFetch";
 
 const PatientReservation = () => {
   const [id, setId] = useState("");
-  const [reserveData, setReserveData] = useState({});
-  const [doctorList, setDoctorList] = useState({});
+  const [reserveData, setReserveData] = useState([]);
+  const [doctorList, setDoctorList] = useState([]);
   const [oneAgoData, setOneAgoData] = useState([]);
   const [twoAgoData, setTwoAgoData] = useState([]);
   const [threeAgoData, setThreeAgoData] = useState([]);
 
   useEffect(() => {
-    if (sessionStorage.getItem("doctor_id") === null) {
-      console.log("회원 정보가 없습니다. 로그인하세요.");
-    } else {
-      setId(sessionStorage.getItem("doctor_id"));
-    }
-    const res = UseFetch(
-      `http://localhost:8080/patient/${id}/reservation`
-    ).data;
-    if (res !== null && res !== undefined) {
-      setReserveData(res.reservation_list);
-      setDoctorList(res.doctor);
-      setOneAgoData(res.res_last_list.one);
-      setTwoAgoData(res.res_last_list.two);
-      setThreeAgoData(res.res_last_list.three);
-    }
-  });
+    const fetchData = async () => {
+      if (sessionStorage.getItem("patient_id") === null) {
+        console.log("회원 정보가 없습니다. 로그인하세요.");
+      } else {
+        setId(sessionStorage.getItem("patient_id"));
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (id === "") {
+        console.log("회원 정보가 없습니다. 로그인하세요.");
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `http://localhost:8080/patient/${id}/reservation`
+        );
+        const data = await response.json();
+
+        console.log(data.data);
+
+        setReserveData(data.data.reservation_list);
+        setDoctorList(data.data.doctor);
+        setOneAgoData(data.data.res_last_list.one);
+        setTwoAgoData(data.data.res_last_list.two);
+        setThreeAgoData(data.data.res_last_list.three);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   return (
     <>
