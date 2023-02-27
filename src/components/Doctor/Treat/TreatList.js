@@ -5,13 +5,15 @@ import TreatInfo from "./TreatInfo";
 const TreatList = ({ selectedList, setSelectedDiaNum }) => {
   const [doctorId, setDoctorId] = useState("");
   const [treatData, setTreatData] = useState([]);
+
   useEffect(() => {
     async function fetchTreatData() {
       try {
-        if (sessionStorage.getItem("doctor_id") === null) {
+        const id = sessionStorage.getItem("doctor_id");
+        if (id === null) {
           console.log("회원 정보가 없습니다. 로그인하세요");
         } else {
-          setDoctorId(sessionStorage.getItem("doctor_id"));
+          setDoctorId(id);
           const response = await fetch(
             "http://localhost:8080/doctor/diagnosis/detail",
             {
@@ -21,14 +23,13 @@ const TreatList = ({ selectedList, setSelectedDiaNum }) => {
               },
               body: JSON.stringify({
                 data: {
-                  doctor_id: doctorId,
+                  doctor_id: id,
                   patient_id: selectedList,
                 },
               }),
             }
           );
           const data = await response.json();
-          console.log(data);
           if (data.result === "OK") {
             setTreatData(data.data);
           } else {
@@ -41,6 +42,7 @@ const TreatList = ({ selectedList, setSelectedDiaNum }) => {
     }
     fetchTreatData();
   }, [selectedList]);
+  
 
   return (
     <Card>

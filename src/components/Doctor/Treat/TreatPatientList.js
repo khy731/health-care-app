@@ -18,18 +18,26 @@ const TreatPatientList = ({ setSelectedList, setSelectedTreat }) => {
   useEffect(() => {
     const fetchDiagnosisData = async () => {
       if (doctorId !== "") {
-        const response = await fetch(`http://localhost:8080/doctor/${doctorId}/diagnosis`);
+        const response = await fetch(
+          `http://localhost:8080/doctor/${doctorId}/diagnosis`
+        );
         if (response.ok) {
           const data = await response.json();
           if (data !== null && data !== undefined) {
-            setPatientInfo(data);
+            setPatientInfo(data.data);
           }
         }
       }
     };
-
+  
     fetchDiagnosisData();
   }, [doctorId]);
+
+  const handleSelectPatient = (patientId) => {
+    setSelectedList(patientId);
+    setSelectedTreat("");
+  };
+
 
   return (
     <Card>
@@ -46,8 +54,7 @@ const TreatPatientList = ({ setSelectedList, setSelectedTreat }) => {
         <TreatPatientInfo
           key={v.patient_id}
           data={v}
-          setSelectedList={setSelectedList}
-          setSelectedTreat={setSelectedTreat}
+          handleSelectPatient={handleSelectPatient}
         />
       ))}
     </Card>

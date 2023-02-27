@@ -4,12 +4,12 @@ import TreatList from "../../../components/Doctor/Treat/TreatList";
 import TreatPatientList from "../../../components/Doctor/Treat/TreatPatientList";
 
 const DoctorTreat = () => {
-  const [selectedList, setSelectedList] = useState("");
+  const [selectedList, setSelectedList] = useState("patient4");
   const [selectedTreat, setSelectedTreat] = useState("");
   const [selectedDiaNum, setSelectedDiaNum] = useState("");
 
   return (
-    <div>
+    <>
       <TreatPatientList
         setSelectedList={setSelectedList}
         setSelectedTreat={setSelectedTreat}
@@ -22,7 +22,7 @@ const DoctorTreat = () => {
         selectedTreat={selectedTreat}
         selectedDiaNum={selectedDiaNum}
       />
-    </div>
+    </>
   );
 };
 
