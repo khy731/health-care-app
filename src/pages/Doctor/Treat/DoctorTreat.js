@@ -31,7 +31,9 @@ const DoctorTreat = () => {
               setSelectedDiaNum={setSelectedDiaNum}
             />
           </div>
-          {!isClicked && <Button onClick={onClickHandler} />}
+          <div>
+            {!isClicked && <Button onClick={onClickHandler}>진단하기</Button>}
+          </div>
           {isClicked && (
             <Diagnosis
               selectedTreat={selectedTreat}
