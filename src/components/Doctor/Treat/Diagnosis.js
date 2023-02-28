@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../../UI/Button";
 import Card from "../../UI/Card";
 
+import classes from "./Diagnosis.module.css";
 const Diagnosis = ({ selectedTreat, selectedDiaNum }) => {
   const [isShowed, setIsShowed] = useState(false);
   const [preName, setPreName] = useState("");
@@ -75,10 +76,10 @@ const Diagnosis = ({ selectedTreat, selectedDiaNum }) => {
   };
 
   return (
+    <div className={classes.diagbox}>
     <Card>
-      <div>
-        <h2>진단 처방</h2>
-      </div>
+      <div className={classes.top}>진단 처방</div>
+      <div className={classes.diagsmallbox}>
       <Card>
         <form onSubmit={clickHandler}>
           <div>
@@ -141,7 +142,9 @@ const Diagnosis = ({ selectedTreat, selectedDiaNum }) => {
           </form>
         </Card>
       )}
+      </div>
     </Card>
+    </div>
   );
 };
 

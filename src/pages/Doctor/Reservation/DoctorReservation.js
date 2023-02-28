@@ -3,6 +3,7 @@ import DoctorReserveInfo from "../../../components/Doctor/Reservation/DoctorRese
 import TodayReserve from "../../../components/Doctor/Reservation/TodayReserve";
 import DoctorHeader from "../../../components/Header/DoctorHeader";
 
+import classes from './DoctorReservation.module.css';
 const DoctorReservation = () => {
   const [id, setId] = useState("");
   const [reserveData, setReserveData] = useState([]);
@@ -46,8 +47,12 @@ const DoctorReservation = () => {
   return (
     <>
       <DoctorHeader />
-      <TodayReserve data={todayData} />
-      <DoctorReserveInfo data={reserveData} />
+      <div className={classes.mainbox}>
+        <div className={classes.positionchange}>
+          <TodayReserve data={todayData} />
+          <DoctorReserveInfo data={reserveData} />
+        </div>
+      </div>
     </>
   );
 };

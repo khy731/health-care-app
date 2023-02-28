@@ -35,7 +35,7 @@ const DoctorHeader = ( ) => {
                     <ul>
                         <li onClick={toTreatHandler}>진단하기</li>
                         <li onClick={toReserveHandler}>진료 예약</li>
-                        <li onClick={toChatHandler}>채팅</li>
+                        <li onClick={toChatHandler}>비대면 진료</li>
                         <li onClick={toCodeHandler}>코드 발급</li>
                     </ul>
                 </nav>
