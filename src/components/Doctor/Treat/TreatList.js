@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "../../UI/Card";
 import TreatInfo from "./TreatInfo";
 
+import classes from "./TreatList.module.css";
 const TreatList = ({ selectedList, setSelectedDiaNum }) => {
   const [doctorId, setDoctorId] = useState("");
   const [treatData, setTreatData] = useState([]);
@@ -45,20 +46,22 @@ const TreatList = ({ selectedList, setSelectedDiaNum }) => {
   
 
   return (
+    <div className={classes.listbox}>
     <Card>
+    <div className={classes.top}>진료 내역</div>
+      <div className={classes.listsmallbox}>
       <div>
-        <h2>진로 내역</h2>
+        <span>진단 일시</span>
+        <span>증상</span>
+        <span>병명</span>
+        <span>처방</span>
       </div>
-      <ul>
-        <li>진단 일시</li>
-        <li>증상</li>
-        <li>병명</li>
-        <li>처방</li>
-      </ul>
       {treatData.map((v) => (
         <TreatInfo key={v.dia_num} data={v} setSelectedDiaNum={setSelectedDiaNum} />
       ))}
+      </div>
     </Card>
+    </div>
   );
 };
 

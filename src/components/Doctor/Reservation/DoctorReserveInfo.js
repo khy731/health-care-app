@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "../../UI/Card";
 import DoctorReserveList from "./DoctorReserveList";
 
+import classes from "./DoctorReserveInfo.module.css";
 const DoctorReserveInfo = ({ data }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [reserveList, setReserveList] = useState([]);
@@ -22,20 +23,22 @@ const DoctorReserveInfo = ({ data }) => {
   };
 
   return (
-    <>
-      <div>
-        <h2>추후 예약 일정</h2>
-      </div>
+    <div className={classes.docreservebox}>
+      <div className={classes.top}>추후 예약 일정</div>
+      <div className={classes.reservebox}>
       <Card>
-        <label>날짜 선택</label>
-        <input type="date" onChange={onDateHandler} />
+        <div className={classes.positionchange}>날짜 선택</div>
+        <div className={classes.datebox}>
+          <input type="date" onChange={onDateHandler} />
+        </div>
       </Card>
       <Card>
         {reserveList.map((v) => (
           <DoctorReserveList key={v.id} data={v} />
         ))}
       </Card>
-    </>
+      </div>
+    </div>
   );
 };
 
