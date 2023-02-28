@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../../UI/Card";
 
+import classes from "./DoctorReserveList.module.css";
 const DoctorReserveList = ({ data }) => {
   const timeData = [
     { num: 1, time: "9:00" },
@@ -26,12 +27,21 @@ const DoctorReserveList = ({ data }) => {
 
   return (
     <Card>
-      <ul>
-        <li>{time}</li>
-        <li>{data.patient_id.name}</li>
-        <li>{data.contents}</li>
-      </ul>
-      <button onClick={showPatientInfo}>환자 정보</button>
+      <div className={classes.listbox}>
+        <div>
+          <i className="fa-regular fa-clock"></i>
+          <span className={classes.info}>{time}</span>
+        </div>
+        <div>
+        <i className="fa-regular fa-user"></i>
+        <span className={classes.info}>{data.patient_id.name}</span>
+        </div>
+        <div>
+        <span className={classes.changecolor}>증상 :</span>
+        <span className={classes.info}>{data.contents}</span>
+        </div>
+        <button className={classes.controlbutton} onClick={showPatientInfo}>환자 정보</button>
+      </div>
     </Card>
   );
 };

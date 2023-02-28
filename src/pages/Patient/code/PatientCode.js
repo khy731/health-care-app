@@ -58,7 +58,7 @@ const PatientCode = (props) => {
               <div className={classes.codetop}>연결 코드 입력</div>
               <div className={classes.codemiddle}>코드를 입력하면 담당의와 연결됩니다.</div>
               <form onSubmit={PatientCodeHandler} autoComplete="off">
-                <input className={classes.control} id="username" type="text" value={code} onChange={onChangeHandler} placeholder="코드를 입력하세요."/>
+                <input className={classes.control} id="username" type="text" value={code} onChange={onChangeHandler}/>
                 <Button className={classes.controlbutton}type="submit">입력하기</Button>
               </form>
             </div>
