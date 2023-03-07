@@ -4,6 +4,7 @@ import HomeToday from "../../components/Doctor/Home/HomeToday";
 import TodayReserve from "../../components/Doctor/Reservation/TodayReserve";
 import DoctorHeader from "../../components/Header/DoctorHeader";
 
+//import classes from './Doctor.module.css';
 const Doctor = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [id, setId] = useState(null);

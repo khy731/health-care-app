@@ -3,7 +3,7 @@
 }
 
 .treatlist{
-    min-height: 180px;
+    min-height: 195px;
     border: 1px solid #CFCFD2;
     padding: 1rem 1.5rem;
     background-color: #FCFCFC;
@@ -22,4 +22,6 @@
     border-bottom: 1px solid #CECECE;
     padding-bottom: 0.3rem;
     margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
 }
