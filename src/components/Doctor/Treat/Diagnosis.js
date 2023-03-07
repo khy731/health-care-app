@@ -82,6 +82,7 @@ const Diagnosis = ({ selectedTreat, selectedDiaNum }) => {
       <div className={classes.diagsmallbox}>
       <Card>
         <form onSubmit={clickHandler}>
+            <h4>진단</h4>
           <div>
             <label>이름</label>
             <br />
@@ -114,6 +115,7 @@ const Diagnosis = ({ selectedTreat, selectedDiaNum }) => {
       {isShowed && (
         <Card>
           <form onSubmit={submitHandler}>
+            <h4>처방</h4>
             <div>
               <label>처방명</label>
               <br />

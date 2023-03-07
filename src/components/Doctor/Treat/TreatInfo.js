@@ -11,6 +11,7 @@ const TreatInfo = ({ data, setSelectedDiaNum }) => {
       <span>{data.dia_date}</span>
       <span>{data.disease}</span>
       <span>{data.contents}</span>
+      <span>{data.prescription_list.pre_name}</span>
     </div>
   );
 };
