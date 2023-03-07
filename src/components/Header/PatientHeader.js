@@ -28,6 +28,10 @@ const PatientHeader = ( ) => {
         navigate("/patient/code");
     }
 
+    const toVirtualHandler = () => {
+        navigate("/patient/virtualtreat");
+    }
+
     return(
         <div className={classes.header}>
             <div className={classes.mainlogo} onClick={toHomeHandler}>
@@ -39,8 +43,9 @@ const PatientHeader = ( ) => {
                     <ul>
                         <li onClick={toTreatHandler}>진단 내역</li>
                         <li onClick={toReserveHandler}>진료 예약</li>
+                        <li onClick={toSenserHandler}>센서</li>
+                        <li onClick={toVirtualHandler}>비대면 진료</li>
                         <li onClick={toChatHandler}>채팅</li>
-                        <li onClick={toSenserHandler}>센서 기록</li>
                         <li onClick={toCodeHandler}>코드 발급</li>
                     </ul>
                 </nav>
