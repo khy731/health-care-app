@@ -20,10 +20,6 @@ const DoctorHeader = ( ) => {
         navigate('/doctor/virtualtreat');
     }
 
-    const toChatHandler = () => {
-        navigate('/doctor/chat');
-    }
-
     const toCodeHandler = () => {
         navigate("/doctor/code");
     }
@@ -40,7 +36,6 @@ const DoctorHeader = ( ) => {
                         <li onClick={toTreatHandler}>진단하기</li>
                         <li onClick={toReserveHandler}>진료 예약</li>
                         <li onClick={toVirtualHandler}>비대면 진료</li>
-                        <li onClick={toChatHandler}>채팅</li>
                         <li onClick={toCodeHandler}>코드 발급</li>
                     </ul>
                 </nav>

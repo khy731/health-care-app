@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Button from "../../UI/Button";
 import Card from "../../UI/Card";
 
 import classes from "./Diagnosis.module.css";
@@ -82,64 +81,54 @@ const Diagnosis = ({ selectedTreat, selectedDiaNum }) => {
       <div className={classes.diagsmallbox}>
       <Card>
         <form onSubmit={clickHandler}>
-            <h4>진단</h4>
-          <div>
+          <div className={classes.top2}>진단</div>
+          <div className={classes.list}>
             <label>이름</label>
-            <br />
             <input value={selectedTreat.name}></input>
           </div>
-          <div>
+          <div className={classes.list}>
             <label>생년월일</label>
-            <br />
             <input value={selectedTreat.born} />
           </div>
-          <div>
-            <label>특이사항(진단내용)</label>
-            <br />
+          <div className={classes.list}>
+            <span>특이사항</span>
             <textarea
-              placeholder="ex.기침"
-              value={selectedTreat.note}
-              readOnly
-            />
+              placeholder="ex.기침" value={selectedTreat.note} readOnly/>
           </div>
-          <div>
-            <label>증상</label>
-            <br />
+          <div className={classes.list}>
+            <span>진단명</span>
             <textarea placeholder="ex. 감기" value={selectedTreat.symptom} readOnly />
           </div>
-          <div>
-            <button type="submit">진단하기</button>
+          <div className={classes.background}>
+            <button className={classes.controlbutton2} type="submit">진단하기</button>
           </div>
         </form>
       </Card>
+
       {isShowed && (
         <Card>
           <form onSubmit={submitHandler}>
-            <h4>처방</h4>
-            <div>
-              <label>처방명</label>
-              <br />
-              <textarea placeholder="감기" onChange={preNameHandler} value={preName}/>
+            <div className={classes.top3}>처방</div>
+            <div className={classes.list}>
+              <span>처방명</span>
+              <textarea placeholder="ex.타이레놀" onChange={preNameHandler} value={preName}/>
             </div>
-            <div>
-              <label>처방 내용</label>
-              <br />
-              <textarea placeholder="두통약" onChange={contentsHandler} value={contents} />
+            <div className={classes.list}>
+              <span>처방 내용</span>
+              <textarea placeholder="ex.두통약" onChange={contentsHandler} value={contents} />
             </div>
-            <div>
-              <label>일일 복용 횟수</label>
-              <br />
+            <div className={classes.list}>
+              <span>일일 복용 횟수</span>
               <textarea placeholder="ex.3" onChange={oneDayHandler} value={oneDay} />
             </div>
-            <div>
-              <label>총 복용일</label>
-              <br />
-              <textarea placeholder="ex.7" onChange={totalHandler} value={total} />
+            <div className={classes.list}>
+              <span>총 복용일</span>
+              <textarea placeholder="ex.4" onChange={totalHandler} value={total} />
             </div>
-            <div>
-              <Button type="submit" htmlType="submit">
+            <div className={classes.background}>
+              <button className={classes.controlbutton2} type="submit" htmlType="submit">
                 처방하기
-              </Button>
+              </button>
             </div>
           </form>
         </Card>

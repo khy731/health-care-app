@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import Button from "../../UI/Button";
 
+import classes from "./Webcam.module.css";
 const Webcam = () => {
   const videoRef = useRef(null);
 
@@ -22,12 +22,11 @@ const Webcam = () => {
 
   return (
     <div>
-        <h2>비대면 진료</h2>
-        <video ref={videoRef} width={640} height={480} autoPlay />
-        <div>
-            <button>연결 재시도</button>
-            <button>마이크 켜기/끄기</button>
-        </div>
+        <video className={classes.cam} ref={videoRef} width={640} height={480} autoPlay />
+      <div>
+            <button className={classes.controlbutton4}>연결 재시도</button>
+            <button className={classes.controlbutton4}>마이크 켜기/끄기</button>
+      </div>
     </div>
   );
 };
