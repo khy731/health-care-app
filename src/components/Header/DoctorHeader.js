@@ -46,13 +46,13 @@ const DoctorHeader = () => {
             <li onClick={toTreatHandler}>진단하기</li>
             <li onClick={toReserveHandler}>진료 예약</li>
             <li onClick={toVirtualHandler}>비대면 진료</li>
-            <li onClick={toChatHandler}>채팅</li>
+            <li onClick={toChatHandler}>일기 확인</li>
             <li onClick={toCodeHandler}>코드 발급</li>
           </ul>
         </nav>
       </div>
       <div className={classes.mypage}>
-        <i className="fa-solid fa-user" onClick={toggleMenu}></i>
+        <i className="fa-solid fa-user" onClick={toggleMenu}>&nbsp;</i>
         {showMenu && (
           <nav>
             <DoctorDropDown toggleMenu={toggleMenu} />

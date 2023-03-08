@@ -1,5 +1,6 @@
 import Card from "../../UI/Card";
 
+import classes from "./DetailInfo.module.css";
 const DetailInfo = ({ data, selected }) => {
   const selectedData = data.filter((v, i) => i === selected);
   console.log(selectedData);
@@ -17,14 +18,32 @@ const DetailInfo = ({ data, selected }) => {
   };
 
   return (
+    <div className={classes.mainbox}>
     <Card>
-      <ul>
-        <li>이름</li>
-        <li>성별</li>
-        <li>생년월일</li>
-        <li>전화번호</li>
-        <li>증상</li>
-      </ul>
+    <div className={classes.top}>상세 정보</div>
+      <div className={classes.smallbox}>
+      <div className={classes.list}>
+        <label>이름</label>
+      </div>
+      <div className={classes.list}>
+        <label>성별</label>
+      </div>
+      <div className={classes.list}>
+        <label>생년월일</label>
+      </div>
+      <div className={classes.list}>
+        <label>전화번호</label>
+      </div>
+      <div className={classes.list}>
+        <label>증상</label>
+      </div>
+      <div className={classes.list}>
+        <span/>
+      </div>
+      <div className={classes.listlast}>
+        <span/>
+      </div>
+
       {selectedData.length > 0 && (
         <ul>
           <li>{selectedData[0].name}</li>
@@ -34,7 +53,9 @@ const DetailInfo = ({ data, selected }) => {
           <li>{getRandomValueFromArray(ill)}</li>
         </ul>
       )}
+      </div>
     </Card>
+    </div>
   );
 };
 
