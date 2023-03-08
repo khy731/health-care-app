@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import DetailInfo from "../../components/Doctor/Home/DetailInfo";
 import DoctorPatientList from "../../components/Doctor/Home/DoctorPatientList";
 import HomeToday from "../../components/Doctor/Home/HomeToday";
 import TodayReserve from "../../components/Doctor/Reservation/TodayReserve";
@@ -8,6 +9,7 @@ const Doctor = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [id, setId] = useState(null);
   const [doctorData, setDoctorData] = useState({});
+  const [selected, setSelected] = useState('');
 
   useEffect(() => {
     if (sessionStorage.getItem("doctor_id") === null) {
@@ -28,6 +30,7 @@ const Doctor = () => {
 
         if (data !== null && data !== undefined) {
           setIsLogin(true);
+          console.log(data);
           setDoctorData({
             name: data.data.name,
             email: data.data.email,
@@ -75,13 +78,15 @@ const Doctor = () => {
         {doctorData.patientInfo && (
           <div>
             <h2>환자 목록</h2>
-            <DoctorPatientList data={doctorData.patientInfo} />
+            <DoctorPatientList data={doctorData.patientInfo} setSelected={setSelected} />
           </div>
         )}
-        <div>
-          <h2>상세 정보</h2>
-          <div>content</div>
-        </div>
+        {doctorData.patientInfo && (
+          <div>
+            <h2>상세 정보</h2>
+            <DetailInfo data={doctorData.patientInfo} selected={selected} />
+          </div>
+        )}
       </div>
     </>
   );
