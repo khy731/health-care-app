@@ -1,0 +1,56 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-wrapper {
+    width: 600px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .modal-header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-close {
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .patient-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .patient-table th,
+  .patient-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .patient-table th {
+    background-color: #f2f2f2;
+  }
+  

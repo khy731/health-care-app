@@ -8,6 +8,9 @@ const PatientInfoList = ( {data, onClick} ) => {
             <li>{data.gender}</li>
             <li>{data.born}</li>
             <li>{data.phone}</li>
+            <span>
+            <button className={classes.controlbutton} onClick={onClick}>상세</button>
+        </span>
         </ul>
     )
 }

@@ -1,4 +1,4 @@
-import PatientDailyForm from "../../../components/Patient/Daily/PatientDaily";
+import PatientDailyForm from "../../../components/Patient/Daily/PatientDailyForm";
 
 const PatientDaily = () => {
 return(

@@ -6,38 +6,25 @@ import PatientModal from "../Modal/PatientModal";
 
 import classes from "./HomeTodayList.module.css";
 
-const HomeTodayList = ( {info} ) => {
+const HomeTodayList = ({ info }) => {
+  const [isShow, setIsShow] = useState(false);
 
-    const [isShow, setIsShow] = useState(false);
+  const toggleShow = () => {
+    setIsShow(!isShow);
+  };
 
-    const toggleShow = () => {
-        setIsShow(!isShow);
-    }
-
-    return(
-        <Card>
-        <div className={classes.listbox}>
-          <div>
-            <i className="fa-regular fa-user"></i>
-            <span>{info.name}</span>
-          </div>
-            <span>{info.born}</span>
-            <span>{info.phone}</span>
-          <button className={classes.controlbutton}>환자 정보</button>
-        </div>
-        <button onClick={toggleShow}>환자 정보</button>
-        {isShow && <PatientModal isOpen={isShow}/>}
-        </Card>
-        <div className={classes.listbox}>
-          <div>
-            <i className="fa-regular fa-user"></i>
-            <span>&nbsp;&nbsp;&nbsp;{info.name}</span>
-          </div>
-            <span>{info.born}</span>
-            <span>{info.phone}</span>
-          <button className={classes.controlbutton}>환자 정보</button>
-        </div>
-    )
-}
+  return (
+    <div className={classes.listbox}>
+      <div>
+        <i className="fa-regular fa-user"></i>
+        <span>{info.name}</span>
+      </div>
+      <span>{info.born}</span>
+      <span>{info.phone}</span>
+      <button onClick={toggleShow}>환자 정보</button>
+      {isShow && <PatientModal isOpen={isShow} />}
+    </div>
+  );
+};
 
 export default HomeTodayList;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../../UI/Card";
+import PatientModal from "../Modal/PatientModal";
 
 import classes from "./DoctorReserveList.module.css";
 const DoctorReserveList = ({ data }) => {
@@ -15,15 +16,16 @@ const DoctorReserveList = ({ data }) => {
   ];
 
   const [time, setTime] = useState("");
+  const [isShow, setIsShow] = useState(false);
+
+  const toggleShow = () => {
+      setIsShow(!isShow);
+  }
 
   useEffect(() => {
     const timeMatch = timeData.find((v) => v.num === data.res_time);
     setTime(timeMatch.time);
   }, [data.res_time]);
-
-  const showPatientInfo = () => {
-    console.log("환자 정보 버튼이 클릭되었습니다.");
-  };
 
   return (
     <Card>
@@ -40,7 +42,8 @@ const DoctorReserveList = ({ data }) => {
         <span className={classes.changecolor}>증상 :</span>
         <span className={classes.info}>{data.contents}</span>
         </div>
-        <button className={classes.controlbutton} onClick={showPatientInfo}>환자 정보</button>
+        <button className={classes.controlbutton} onClick={toggleShow}>환자 정보</button>
+        {isShow && <PatientModal isOpen={isShow}/>}
       </div>
     </Card>
   );
