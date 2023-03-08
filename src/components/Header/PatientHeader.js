@@ -1,60 +1,71 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PatientDropDown from "./PatientDropDown";
 
 import classes from "./PatientHeader.module.css";
-const PatientHeader = ( ) => {
-    const navigate = useNavigate();
+const PatientHeader = () => {
+  const navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
 
-    const toHomeHandler = () => {
-        navigate('/');
-    }
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
 
-    const toReserveHandler = () => {
-        navigate('/patient/reservation');
-    }
+  const toHomeHandler = () => {
+    navigate("/");
+  };
 
-    const toTreatHandler = () => {
-        navigate('/patient/treat');
-    }
+  const toReserveHandler = () => {
+    navigate("/patient/reservation");
+  };
 
-    const toChatHandler = () => {
-        navigate('/patient/chat');
-    }
+  const toTreatHandler = () => {
+    navigate("/patient/treat");
+  };
 
-    const toSenserHandler = () => {
-        navigate('/patient/senser');
-    }
+  const toChatHandler = () => {
+    navigate("/patient/chat");
+  };
 
-    const toCodeHandler = () => {
-        navigate("/patient/code");
-    }
+  const toSenserHandler = () => {
+    navigate("/patient/senser");
+  };
 
-    const toVirtualHandler = () => {
-        navigate("/patient/virtualtreat");
-    }
+  const toCodeHandler = () => {
+    navigate("/patient/code");
+  };
 
-    return(
-        <div className={classes.header}>
-            <div className={classes.mainlogo} onClick={toHomeHandler}>
-                <img src={require("./logo.png")} 
-                alt="logo" width={190}/>
-            </div>
-            <div className={classes.headerlist}>
-                <nav>
-                    <ul>
-                        <li onClick={toTreatHandler}>진단 내역</li>
-                        <li onClick={toReserveHandler}>진료 예약</li>
-                        <li onClick={toSenserHandler}>센서</li>
-                        <li onClick={toVirtualHandler}>비대면 진료</li>
-                        <li onClick={toChatHandler}>채팅</li>
-                        <li onClick={toCodeHandler}>코드 발급</li>
-                    </ul>
-                </nav>
-            </div>
-            <div className={classes.mypage}>
-                <i className="fa-solid fa-user"></i>
-            </div>
-        </div>
-    )
-}
+  const toVirtualHandler = () => {
+    navigate("/patient/virtualtreat");
+  }
+
+  return (
+    <div className={classes.header}>
+      <div className={classes.mainlogo} onClick={toHomeHandler}>
+        <img src={require("./logo.png")} alt="logo" width={190} />
+      </div>
+      <div className={classes.headerlist}>
+        <nav>
+          <ul>
+            <li onClick={toTreatHandler}>진단 내역</li>
+            <li onClick={toReserveHandler}>진료 예약</li>
+            <li onClick={toSenserHandler}>센서</li>
+            <li onClick={toVirtualHandler}>비대면 진료</li>
+            <li onClick={toChatHandler}>채팅</li>
+            <li onClick={toCodeHandler}>코드 발급</li>
+          </ul>
+        </nav>
+      </div>
+      <div className={classes.mypage}>
+        <i className="fa-solid fa-user" onClick={toggleMenu}></i>
+        {showMenu && (
+          <nav>
+            <PatientDropDown toggleMenu={toggleMenu}/>
+          </nav>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default PatientHeader;
