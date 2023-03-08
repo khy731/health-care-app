@@ -5,7 +5,7 @@ import HomeToday from "../../components/Doctor/Home/HomeToday";
 import TodayReserve from "../../components/Doctor/Reservation/TodayReserve";
 import DoctorHeader from "../../components/Header/DoctorHeader";
 
-//import classes from './Doctor.module.css';
+import classes from './Doctor.module.css';
 const Doctor = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [id, setId] = useState(null);
@@ -69,25 +69,26 @@ const Doctor = () => {
   return (
     <>
       <DoctorHeader />
-      <div>
-        {doctorData.reserve && (
-          <div>
-            <h2>금일 예약</h2>
-            <HomeToday data={doctorData.reserve} />
+      <div className={classes.mainbox}>
+        <div className={classes.positionchange}>
+          <div className={classes.column}>
+          {doctorData.reserve && (
+            <div>
+              <HomeToday data={doctorData.reserve} />
+            </div>
+          )}
+          {doctorData.patientInfo && (
+            <div>
+              <DoctorPatientList data={doctorData.patientInfo} setSelected={setSelected} />
+            </div>
+          )}
           </div>
-        )}
         {doctorData.patientInfo && (
           <div>
-            <h2>환자 목록</h2>
-            <DoctorPatientList data={doctorData.patientInfo} setSelected={setSelected} />
-          </div>
-        )}
-        {doctorData.patientInfo && (
-          <div>
-            <h2>상세 정보</h2>
             <DetailInfo data={doctorData.patientInfo} selected={selected} />
           </div>
         )}
+        </div>
       </div>
     </>
   );

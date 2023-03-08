@@ -1,0 +1,27 @@
+.listbox {
+    font-size: 13.5px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.7rem 0rem 0.4rem 0rem;
+    border-bottom: 1px solid #CECECE;
+}
+
+.listbox i {
+    font-size: 14px;
+    color: #494949;
+}
+
+.info{
+    margin-left: 0.5rem;
+}
+
+.controlbutton{
+    font-size: 10px;
+    background: #F7F7F7;
+    border: 0.1px solid #494949;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    padding: 0.2rem 0.3rem;
+    margin-bottom: 0.3rem;
+    cursor: pointer;
+}
