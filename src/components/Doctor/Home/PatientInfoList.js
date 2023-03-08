@@ -1,8 +1,9 @@
-const PatientInfoList = ( {data} ) => {
-    console.log(data);
+const PatientInfoList = ( {data, onClick} ) => {
+
     return(
-        <ul>
+        <ul onClick={onClick}>
             <li>{data.name}</li>
+            <li>{data.gender}</li>
             <li>{data.born}</li>
             <li>{data.phone}</li>
         </ul>

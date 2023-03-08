@@ -1,24 +1,41 @@
 import Card from "../../UI/Card";
-import DetailInfoList from './DetailInfoList';
 
-const DetailInfo = ({data}) => {
-    // 상세정보 추가 예정
-    // 현재 일반 정보에 필요한 데이터와 상세 정보에 필요한 데이터 전부 부족
-    // API 수정 요청할 것
-    // 데이터는 Doctor.js(홈)에서 가져옴
+const DetailInfo = ({ data, selected }) => {
+  const selectedData = data.filter((v, i) => i === selected);
+  console.log(selectedData);
 
-    return(
-        <Card>
+  const ill = [
+    "머리가 심하게 울림",
+    "속이 매우 쓰리고 메스꺼움",
+    "어지럽고 환청이 들림",
+    "무릎이 아프고 관절염이 의심됨",
+  ];
+
+  const getRandomValueFromArray = (array) => {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
+  };
+
+  return (
+    <Card>
+      <ul>
+        <li>이름</li>
+        <li>성별</li>
+        <li>생년월일</li>
+        <li>전화번호</li>
+        <li>증상</li>
+      </ul>
+      {selectedData.length > 0 && (
         <ul>
-            <li>이름</li>
-            <li>생년월일</li>
-            <li>전화번호</li>
+          <li>{selectedData[0].name}</li>
+          <li>{selectedData[0].gender}</li>
+          <li>{selectedData[0].born}</li>
+          <li>{selectedData[0].phone}</li>
+          <li>{getRandomValueFromArray(ill)}</li>
         </ul>
-        {data.map(v => {
-            <DetailInfoList info={v} />
-        })}
-      </Card>
-    )
-}
+      )}
+    </Card>
+  );
+};
 
 export default DetailInfo;
