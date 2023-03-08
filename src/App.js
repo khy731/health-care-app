@@ -15,6 +15,7 @@ import DoctorTreat from "./pages/Doctor/Treat/DoctorTreat";
 import PatientTreat from "./pages/Patient/Treat/PatientTreat";
 import DoctorVirtualTreat from "./pages/Doctor/virtualtreat/DoctorVirtualTreat";
 import PatientVirtualTreat from "./pages/Patient/virtualtreat/PatientVirtualTreat";
+import PatientDaily from "./pages/Patient/Daily/PatientDaily";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           <Route path="/patient/treat" element={<PatientTreat />} />
           <Route path="/doctor/virtualtreat" element={<DoctorVirtualTreat />} />
           <Route path="/patient/virtualtreat" element={<PatientVirtualTreat />} />
+          <Route path="/patient/daily" element={<PatientDaily />} />
           <Route path="*" />
         </Routes>
       </div>
