@@ -17,7 +17,7 @@ const HomeTodayList = ( {info} ) => {
         <div className={classes.listbox}>
           <div>
             <i className="fa-regular fa-user"></i>
-            <span>&nbsp;&nbsp;&nbsp;{info.name}</span>
+            <span>{info.name}</span>
           </div>
             <span>{info.born}</span>
             <span>{info.phone}</span>
