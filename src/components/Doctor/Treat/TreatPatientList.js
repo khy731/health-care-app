@@ -46,10 +46,14 @@ const TreatPatientList = ({ setSelectedList, setSelectedTreat }) => {
       <div className={classes.top}>환자 목록</div>
       <div className={classes.treatlist}>
         <div className={classes.inform}>
-          <span>이름</span>
-          <span>성별</span>
-          <span>생년월일</span>
-          <span>전화번호</span>
+          <span>&nbsp;이름</span>
+          <span>&nbsp;성별</span>
+          <span>&nbsp;&nbsp;생년월일</span>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전화번호</span>
+          <span/>
+          <span/>
+          <span/>
+          <span/>
         </div>
         {patientInfo.map((v) => (
         <TreatPatientInfo

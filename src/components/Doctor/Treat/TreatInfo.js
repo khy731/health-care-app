@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import classes from "./TreatInfo.module.css";
 
 const TreatInfo = ({ data, setSelectedDiaNum }) => {
 
@@ -7,11 +8,14 @@ const TreatInfo = ({ data, setSelectedDiaNum }) => {
   }, [data.dia_num, setSelectedDiaNum]);
 
   return (
-    <div>
+    <div className={classes.treatlist}>
       <span>{data.dia_date}</span>
       <span>{data.disease}</span>
-      <span>{data.contents}</span>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.contents}</span>
       <span>{data.prescription_list.pre_name}</span>
+      <span/>
+      <span/>
+      <span/>
     </div>
   );
 };
