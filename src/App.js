@@ -42,6 +42,7 @@ function App() {
           <Route path="/patient/virtualtreat" element={<PatientVirtualTreat />} />
           <Route path="/patient/daily" element={<PatientDaily />} />
           <Route path="/doctor/chat" element={<DoctorChat />} />
+          <Route path="/patient/chat" element={<Patient />} />
           <Route path="*" />
         </Routes>
       </div>

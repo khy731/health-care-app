@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DoctorChatButton = () => {
+const PatientChatButton = () => {
   const handleButtonClick = async () => {
     try {
       const response = await fetch('API 주소 작성'); // API 주소 작성
@@ -28,4 +28,4 @@ const DoctorChatButton = () => {
   );
 };
 
-export default DoctorChatButton;
+export default PatientChatButton;
