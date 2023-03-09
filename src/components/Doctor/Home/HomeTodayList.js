@@ -1,5 +1,3 @@
-import classes from "./HomeTodayList.module.css";
-
 import { useState } from "react";
 import Card from "../../UI/Card";
 import PatientModal from "../Modal/PatientModal";
@@ -16,7 +14,7 @@ const HomeTodayList = ({ info }) => {
   return (
     <div className={classes.listbox}>
       <div>
-        <i className="fa-regular fa-user"></i>
+        <i className="fa-regular fa-user">&nbsp;&nbsp;</i>
         <span>{info.name}</span>
       </div>
       <span>{info.born}</span>
