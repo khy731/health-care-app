@@ -53,8 +53,8 @@
 .list input:focus,
 .list textarea:focus{
     outline: none;
-    border-color: #5EBE79;
-  }
+    border-color: #CFCFD2;
+}
 
 .controlbutton2{
     font-size: 13px;

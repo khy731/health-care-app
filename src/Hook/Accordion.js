@@ -1,25 +1,14 @@
 import { useState } from "react";
 
+import classes from "./Accordion.module.css";
 const Accordion = ({ title, content }) => {
   const [isCheck, setCheck] = useState(false);
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "10px",
-          boxSizing: "border-box",
-          backgroundColor: "gray",
-          width: "100%",
-          height: "60px",
-          color: "#fff",
-        }}
-      >
-        <h1 style={{ fontSize: "30px" }}>{title}</h1>
-        <button
+      <div className={classes.all}>
+        <div className={classes.main}>{title}</div>
+        <button className={classes.controlbutton}
           onClick={() => {
             setCheck((e) => !e);
           }}
@@ -28,20 +17,12 @@ const Accordion = ({ title, content }) => {
         </button>
       </div>
       {isCheck && (
-        <ul
-          style={{
-            listStyleType: "none",
-            margin: "0",
-            padding: "0",
-            backgroundColor: "skyblue",
-            color: "#fff",
-          }}
-        >
+        <ul className={classes.open}>
           {content.map((item, index) => (
             <li key={index}>
-              <ul style={{ listStyleType: "disc" }}>
-                <li>{item.res_date}</li>
-                <li>{item.doctor_name}</li>
+              <ul>
+                <span>{item.res_date}&nbsp;&nbsp;&nbsp;</span>
+                <span>{item.doctor_name}</span>
               </ul>
             </li>
           ))}

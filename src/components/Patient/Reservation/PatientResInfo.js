@@ -11,11 +11,22 @@ const PatientResInfo = ({ data }) => {
           <div className={classes.middle}>진료가 예정되어 있습니다.</div>
             {data.map((v, i) => {
               <ul id={i}>
-                <li>{v.res_date}</li>
-                <li>{v.res_time}</li>
-                <li>{v.doctor_name}</li>
-                <button>예약 취소</button>
-              </ul>;
+              <div className={classes.listbox}>
+                <div>
+                  <i className="fa-regular fa-calendar">&nbsp;&nbsp;</i>
+                  <span>{v.res_date}</span>
+                </div>
+                <div>
+                  <i className="fa-regular fa-clock">&nbsp;&nbsp;</i>
+                  <span>{v.res_time}</span>
+                </div>
+                <div>
+                  <i className="fa-regular fa-user">&nbsp;&nbsp;</i>
+                  <span>{v.doctor_name}</span>
+                </div>
+              <button className={classes.controlbutton}>예약 취소</button>
+            </div>
+            </ul>;
             })}
         </Card>
       ) : (
