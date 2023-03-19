@@ -110,9 +110,8 @@ const ReserveSubmit = ({ id, doctorData }) => {
       <div className={classes.top}>진료 예약</div>
         <div className={classes.smallbox}>
         <form onSubmit={onSubmit}>
-          <div>
+          <div className={classes.control}>
             <label>담당의</label>
-            <br />
             <select onChange={onChangeDoctor}>
               {doctorData.map((v, i) => (
                 <option key={i} value={v.name}>
@@ -121,17 +120,15 @@ const ReserveSubmit = ({ id, doctorData }) => {
               ))}
             </select>
           </div>
-          <div>
+          <div className={classes.control}>
             <label>예약 날짜</label>
-            <br />
             <input type="date" onChange={onChangeDate} />
-            <button type="button" onClick={onClickHandler}>
-              가능한 예약 시간 확인하기
-            </button>
+            <Button className={classes.controlbutton2} type="button" onClick={onClickHandler}>
+              예약 가능한 시간 확인하기
+            </Button>
           </div>
-          <div>
+          <div className={classes.control}>
             <label>예약 시간</label>
-            <br />
             <select onChange={onChangeTime}>
               {Object.values(availableTime).map((v, i) => (
                 <option key={i} value={v.num}>
@@ -140,13 +137,12 @@ const ReserveSubmit = ({ id, doctorData }) => {
               ))}
             </select>
           </div>
-          <div>
+          <div className={classes.control}>
             <label>증상</label>
-            <br />
             <input type="text" value={symptom} onChange={onChangeSymptom} />
           </div>
           <div>
-            <Button type="submit" htmlType="submit" onClick={onSubmit}>
+            <Button className={classes.controlbutton} type="submit" htmlType="submit" onClick={onSubmit}>
               예약하기
             </Button>
           </div>

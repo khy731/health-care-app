@@ -14,3 +14,54 @@
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
+
+.control{
+    margin-bottom: 15px;
+    display: flex;
+    width: 23.83rem;
+    align-items: stretch;
+    flex-direction: column;
+    text-align: left;
+}
+select,
+.control input {
+  font: inherit;
+  font-size: smaller;
+  padding: 0.6rem 1rem;
+  margin-top: 3px;
+  border-radius: 3px;
+  border: 1px solid #BCBCBC;
+  background-color: #FFFFFF;
+}
+.control input:focus {
+  outline: none;
+  border-color: #BCBCBC;
+}
+select:focus{
+  outline: none;
+  border-color: #BCBCBC;
+}
+
+.control label{
+    margin-bottom: 0.3rem;
+}
+
+.controlbutton {
+    background: #C5DEC3;
+    border-color: #C5DEC3;
+    margin-top: 1rem;
+    color: #000000;
+    height: 50px;
+    font-weight: bold;
+}
+.controlbutton2{
+    font-size: 15px;
+    color: #000000;
+    background: #F1F6F1;
+    border-color: #F7F7F7;
+    border-radius: 2.5px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+    margin-top: 1rem;
+    cursor: pointer;
+}

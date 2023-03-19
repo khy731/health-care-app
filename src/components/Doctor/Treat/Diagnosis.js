@@ -97,7 +97,7 @@ const Diagnosis = ({ selectedTreat, selectedDiaNum }) => {
           </div>
           <div className={classes.list}>
             <span>진단명</span>
-            <textarea placeholder="ex. 감기" value={selectedTreat.symptom} readOnly />
+            <textarea placeholder="ex.감기" value={selectedTreat.symptom} readOnly />
           </div>
           <div className={classes.background}>
             <button className={classes.controlbutton2} type="submit">진단하기</button>
