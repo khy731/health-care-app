@@ -31,7 +31,7 @@ const PatientSignup = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: id,
+        patient_id: id,
         name: name,
         gender: gender,
         email: email,

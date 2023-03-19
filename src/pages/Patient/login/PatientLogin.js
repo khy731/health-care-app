@@ -7,10 +7,10 @@ import { useNavigate, Link } from "react-router-dom";
 
 const passwordReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
-    return { value: action.val, isValid: action.val.trim().length > 4 };
+    return { value: action.val, isValid: action.val.trim().length > 2 };
   }
   if (action.type === "INPUT_BLUR") {
-    return { value: state.value, isValid: state.value.trim().length > 4 };
+    return { value: state.value, isValid: state.value.trim().length > 2 };
   }
   return { value: "", isValid: false };
 };
