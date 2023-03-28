@@ -37,3 +37,13 @@ i {
     font-size: 55px;
     color: black;
 }
+
+@media (max-width: 500px) {
+    .welcomelogo {
+        width: 320px;
+    }
+    .patientbox,
+    .doctorbox{
+        margin: 0rem;
+    }
+}

@@ -5,7 +5,7 @@ const Welcome = () => {
   return (
     <div>
     <br/><br/>
-    <img src={require("../components/Header/logo.png")} 
+    <img className={classes.welcomelogo} src={require("../components/Header/logo.png")} 
     alt="logo" width={380}/>
     <br/><br/>
     <div className={classes.choosebox}>
