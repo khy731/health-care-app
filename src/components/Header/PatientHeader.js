@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PatientDropDown from "./PatientDropDown";
+import PatientReactiveHeader from "./PatientReactiveHeader";
 
 import classes from "./PatientHeader.module.css";
 const PatientHeader = () => {
@@ -38,7 +39,7 @@ const PatientHeader = () => {
   const toVirtualHandler = () => {
     navigate("/patient/virtualtreat");
   }
-
+  
   return (
     <div className={classes.header}>
       <div className={classes.mainlogo} onClick={toHomeHandler}>
@@ -61,6 +62,14 @@ const PatientHeader = () => {
         {showMenu && (
           <nav>
             <PatientDropDown toggleMenu={toggleMenu}/>
+          </nav>
+        )}
+      </div>
+      <div className={classes.navbar__toogleBtn}>
+          <i className="fa-sharp fa-solid fa-bars" onClick={toggleMenu}></i>
+          {showMenu && (
+          <nav>
+            <PatientReactiveHeader toggleMenu={toggleMenu}/>
           </nav>
         )}
       </div>
