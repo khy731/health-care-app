@@ -35,33 +35,21 @@
     color: #383838;
 }
 
-.navbar__toogleBtn{
-    display: none;
-}
-
 @media (max-width: 900px) {
     .header{
         flex-direction: column;
-        border-bottom: 1px solid #CECECE;
+        background-color:rgba(255, 255, 255, 0.75);
     }
     .headerlist nav ul,
     .mypage{
-        display: none;
-    }
-    .mainlogo{
-        display: flex;
-        flex-direction: row;
-        padding: 1px;
-    }
-    .navbar__toogleBtn{
         display: block;
-        position: absolute;
-        top: 21px;
-        right: 15px;
+        flex-direction: column;
         text-align: right;
     }
-    .navbar__toogleBtn i{
-        font-size: 22px;
-        color: #383838;
+    .headerlist nav ul li{
+        padding: 15px 0px 0px 0px;
+    }
+    .mypage{
+        padding: 0px 0px 7px 0px;
     }
   }

@@ -1,17 +1,24 @@
+.shape{
+  width: 19.5rem;
+}
+.shape label{
+  display: flex;
+  text-align: left;
+}
+
 .control{
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
     display: flex;
-    width: 25rem;
     align-items: stretch;
     flex-direction: column;
-    text-align: left;
   }
   select,
   .control input {
+    flex: 5;
     font: inherit;
     font-size: smaller;
     padding: 0.5rem 1rem;
-    margin-top: 3px;
+    margin-top: 0.188rem;
     border-radius: 3px;
     border: 1px solid #BCBCBC;
     background-color: #FFFFFF;
@@ -27,17 +34,30 @@
 
   .signupbox{
     display: flex;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 1.875rem;
+    padding-bottom: 1.875rem;
     justify-content: center;
     background-color: #FAFAFA;
   }
 
   .signupbottom{
-    margin-top: 15px;
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    margin-top: 0.4rem;
     color: #8A8A8A;
-    text-align: right;
    }
   .cancel:hover {
     opacity: 0.7;
+  }
+
+  @media (min-width: 780px) {
+    .control {
+      align-items: center;
+      flex-direction: row;
+      width: 25rem;
+    }
+    .shape{
+      padding-right: 5.35rem;
+    }
   }

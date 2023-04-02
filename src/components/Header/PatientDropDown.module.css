@@ -4,3 +4,12 @@
     font-size: 12px;
     border: 1px solid #CECECE;
 }
+
+@media (max-width: 900px) {
+    .dropdown{
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 5px;
+        text-align: center;
+    }
+}

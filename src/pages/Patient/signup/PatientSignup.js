@@ -93,12 +93,13 @@ const PatientSignup = () => {
       <br/><br/>
     <div className={classes.signupbox}>
     <form onSubmit={onSubmit} autocomplete="off">
+    <div className={classes.shape}>
+      <label htmlFor="id">아이디</label>
       <div className={classes.control}>
-        <label htmlFor="id">아이디</label>
         <input name="id" type="text" value={id} onChange={onChangeId} />
       </div>
+      <label htmlFor="password">비밀번호</label>
       <div className={classes.control}>
-        <label htmlFor="password">비밀번호</label>
         <input
           name="password"
           type="password"
@@ -106,8 +107,8 @@ const PatientSignup = () => {
           onChange={onChangePassword}
         />
       </div>
+      <label htmlFor="password-check">비밀번호 확인</label>
       <div className={classes.control}>
-        <label htmlFor="password-check">비밀번호 확인</label>
         <input
           name="password-check"
           type="password"
@@ -118,24 +119,24 @@ const PatientSignup = () => {
           <div style={{ color: "red" }}>비밀번호가 일치하지 않습니다.</div>
         )}
       </div>
+      <label htmlFor="name">이름</label>
       <div className={classes.control}>
-        <label htmlFor="name">이름</label>
         <input name="name" type="text" value={name} onChange={onChangeName} />
       </div>
+      <label htmlFor="gender">성별</label>
       <div className={classes.control}>
-        <label htmlFor="gender">성별</label>
         <select name="gender" value={gender} onChange={onChangeGender}>
           <option disabled selected value="">성별</option>
           <option value="female">여자</option>
           <option value="male">남자</option>
         </select>
       </div>
+      <label htmlFor="born">생년월일</label>
       <div className={classes.control}>
-        <label htmlFor="born">생년월일</label>
         <input name="born" type="date" value={born} onChange={onChangeBorn} />
       </div>
+      <label htmlFor="email">이메일</label>
       <div className={classes.control}>
-        <label htmlFor="email">이메일</label>
         <input
           name="email"
           type="email"
@@ -143,20 +144,23 @@ const PatientSignup = () => {
           onChange={onChangeEmail}
         />
       </div>
+      <label htmlFor="phone">휴대전화</label>
       <div className={classes.control}>
-        <label htmlFor="phone">휴대전화</label>
         <input name="phone" type="tel" value={phone} onChange={onChangePhone} />
       </div>
       <br/>
-      <div>
+      <div className={classes.control}>
         <Button type="submit" htmlType="submit" onClick={onSubmit}>
           계정 생성
         </Button>
-      </div>
-      <div className={classes.signupbottom}>
-      <span className={classes.cancel} onClick={cancleHandler}>
+        </div>
+        <div className={classes.control}>
+        <div className={classes.signupbottom}>
+        <span className={classes.cancel} onClick={cancleHandler}>
              CANCEL
-      </span>
+        </span>
+        </div>
+      </div>
       </div>
     </form>
     </div>

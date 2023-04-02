@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DoctorDropDown from "./DoctorDropDown";
+import PatientDropDown from "./PatientDropDown";
 
-import classes from "./DoctorHeader.module.css";
-const DoctorHeader = () => {
+import classes from "./PatientReactiveHeader.module.css";
+const PatientHeader = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
 
@@ -11,42 +11,40 @@ const DoctorHeader = () => {
     setShowMenu(!showMenu);
   };
 
-  const toHomeHandler = () => {
-    navigate("/");
-  };
-
   const toReserveHandler = () => {
-    navigate("/doctor/reservation");
+    navigate("/patient/reservation");
   };
 
   const toTreatHandler = () => {
-    navigate("/doctor/treat");
-  };
-
-  const toVirtualHandler = () => {
-    navigate("/doctor/virtualtreat");
+    navigate("/patient/treat");
   };
 
   const toChatHandler = () => {
-    navigate("/doctor/checkdiary");
+    navigate("/patient/chat");
+  };
+
+  const toSenserHandler = () => {
+    navigate("/patient/senser");
   };
 
   const toCodeHandler = () => {
-    navigate("/doctor/code");
+    navigate("/patient/code");
   };
 
+  const toVirtualHandler = () => {
+    navigate("/patient/virtualtreat");
+  }
+  
   return (
     <div className={classes.header}>
-      <div className={classes.mainlogo} onClick={toHomeHandler}>
-        <img src={require("./logo.png")} alt="logo" width={190} />
-      </div>
       <div className={classes.headerlist}>
         <nav>
           <ul>
-            <li onClick={toTreatHandler}>진단하기</li>
+            <li onClick={toTreatHandler}>진료 내역</li>
             <li onClick={toReserveHandler}>진료 예약</li>
             <li onClick={toVirtualHandler}>비대면 진료</li>
-            <li onClick={toChatHandler}>일기 확인</li>
+            <li onClick={toChatHandler}>챗봇</li>
+            <li onClick={toSenserHandler}>센서</li>
             <li onClick={toCodeHandler}>코드 발급</li>
           </ul>
         </nav>
@@ -55,7 +53,7 @@ const DoctorHeader = () => {
         <i className="fa-solid fa-user" onClick={toggleMenu}>&nbsp;</i>
         {showMenu && (
           <nav>
-            <DoctorDropDown toggleMenu={toggleMenu} />
+            <PatientDropDown toggleMenu={toggleMenu}/>
           </nav>
         )}
       </div>
@@ -63,4 +61,4 @@ const DoctorHeader = () => {
   );
 };
 
-export default DoctorHeader;
+export default PatientHeader;
