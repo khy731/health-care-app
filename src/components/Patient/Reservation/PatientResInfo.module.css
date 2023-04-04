@@ -44,3 +44,19 @@
     margin-bottom: 0.3rem;
     cursor: pointer;
 }
+
+@media (max-width: 500px) {
+    .reservebox{
+        width: 350px;
+        margin-top: 1.2rem;
+    }
+    .reservesmallbox{
+        min-height: 230px;
+    }
+    .top{
+        font-size: 18px;
+    }
+    .listbox i {
+        display: none;
+    }
+}

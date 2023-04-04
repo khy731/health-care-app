@@ -1,4 +1,4 @@
-import classes from "./PatientDiaInfo.module.css";
+import classes from "./PatientPreInfo.module.css";
 
 const PatientDiaInfo = ({ data }) => {
     console.log(data);
