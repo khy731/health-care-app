@@ -13,16 +13,18 @@ const TreatPatientInfo = ({ data, setSelectedList, setSelectedTreat }) => {
   };
 
   return (
-    <div className={classes.treatlist}>
-      <span>{data.name}</span>
-      <span>{data.gender}</span>
-      <span>{data.born}</span>
-      <span>{data.phone}</span>
+    <table>
+    <tr className={classes.treatlist}>
+      <td className={classes.one}>{data.name}</td>
+      <td className={classes.two}>{data.gender}</td>
+      <td className={classes.three}>{data.born}</td>
+      <td className={classes.four}>{data.phone}</td>
       <span>
         <button className={classes.controlbutton} onClick={listHandler}>내역</button>
         <button className={classes.controlbutton2} onClick={treatHandler}>진단</button>
       </span>
-    </div>
+    </tr>
+    </table>
   );
 };
 

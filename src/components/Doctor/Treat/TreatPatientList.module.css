@@ -17,11 +17,23 @@
 }
 
 .inform{
-    font-size:  12px;
+    font-size:  11.5px;
     color: #8B8B8B;
-    border-bottom: 1px solid #CECECE;
-    padding-bottom: 0.3rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    justify-content: space-between;
+}
+.one{
+    width: 48px;
+}
+.two{
+    width: 48px;
+}
+.three{
+    width: 80px;
+}
+.four{
+    width: 100px;
+}
+
+.bottom{
+    border-top: 1px solid #CECECE;
+    margin-bottom: 3px;
 }

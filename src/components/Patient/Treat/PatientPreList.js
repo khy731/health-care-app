@@ -46,12 +46,15 @@ const PatientDiaList = () => {
       <Card>
       <div className={classes.top}>처방 내역</div>
       <div className={classes.diasmallbox}>
-        <div className={classes.inform}>
-          <span>처방명</span>
-          <span>&nbsp;&nbsp;처방 내용</span>
-          <span>일일 복용(회)</span>
-          <span>총 복용(일)</span>
-        </div>
+        <table>
+        <tr className={classes.inform}>
+          <td className={classes.one}>처방명</td>
+          <td className={classes.one}>처방 내용</td>
+          <td className={classes.one}>일일 복용(회)</td>
+          <td className={classes.one}>총 복용(일)</td>
+        </tr>
+        </table>
+        <div className={classes.bottom}/>
         {treatData.map((v) => (
           <PatientPreInfo key={v.dia_num} data={v} />
         ))}

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Card from "../../UI/Card";
 import PatientInfoList from "./PatientInfoList";
 
@@ -10,15 +9,15 @@ const DoctorPatientList = ({ data, setSelected }) => {
     <Card>
       <div className={classes.top}>환자 목록</div>
       <div className={classes.treatlist}>
-        <div className={classes.inform}>
-          <span>&nbsp;이름</span>
-          <span>&nbsp;&nbsp;&nbsp;성별</span>
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;생년월일</span>
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전화번호</span>
-          <span/>
-          <span/>
-          <span/>
-        </div>
+        <table>
+        <tr className={classes.inform}>
+          <td className={classes.one}>이름</td>
+          <td className={classes.two}>&nbsp;&nbsp;성별</td>
+          <td className={classes.three}>생년월일</td>
+          <td className={classes.four}>전화번호</td>
+        </tr>
+        </table>
+        <div className={classes.bottom}/>
       {data.map((v, i) => (
         <PatientInfoList data={v} key={v.patient_id} onClick={()=>{setSelected(i)}} />
       ))}

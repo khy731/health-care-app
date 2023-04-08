@@ -5,8 +5,8 @@ import PatientModal from "../Modal/PatientModal";
 import classes from "./DoctorReserveList.module.css";
 const DoctorReserveList = ({ data }) => {
   const timeData = [
-    { num: 1, time: "9:00" },
-    { num: 2, time: "9:30" },
+    { num: 1, time: "09:00" },
+    { num: 2, time: "09:30" },
     { num: 3, time: "10:00" },
     { num: 4, time: "10:30" },
     { num: 5, time: "14:00" },
@@ -29,22 +29,25 @@ const DoctorReserveList = ({ data }) => {
 
   return (
     <Card>
-      <div className={classes.listbox}>
-        <div>
+      <table>
+      <tr className={classes.listbox}>
+        <td className={classes.one}>
           <i className="fa-regular fa-clock"></i>
-          <span className={classes.info}>{time}</span>
-        </div>
-        <div>
-        <i className="fa-regular fa-user"></i>
-        <span className={classes.info}>{data.patient_id.name}</span>
-        </div>
-        <div>
-        <span className={classes.changecolor}>증상 :</span>
-        <span className={classes.info}>{data.contents}</span>
-        </div>
+          <span>&nbsp;&nbsp;{time}</span>
+        </td>
+        <td className={classes.two}>
+          <i className="fa-regular fa-user"></i>
+          <span>&nbsp;&nbsp;{data.patient_id.name}</span>
+        </td>
+        <td className={classes.three}>
+          <span className={classes.changecolor}>증상 :</span>
+          <span>&nbsp;{data.contents}</span>
+        </td>
         <button className={classes.controlbutton} onClick={toggleShow}>환자 정보</button>
         {isShow && <PatientModal isOpen={isShow}/>}
-      </div>
+      </tr>
+      </table>
+      <div className={classes.bottom}/>
     </Card>
   );
 };

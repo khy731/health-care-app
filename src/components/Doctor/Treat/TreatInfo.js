@@ -8,15 +8,14 @@ const TreatInfo = ({ data, setSelectedDiaNum }) => {
   }, [data.dia_num, setSelectedDiaNum]);
 
   return (
-    <div className={classes.treatlist}>
-      <span>{data.dia_date}</span>
-      <span>{data.disease}</span>
-      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.contents}</span>
-      <span>{data.prescription_list.pre_name}</span>
-      <span/>
-      <span/>
-      <span/>
-    </div>
+    <table>
+    <tr className={classes.treatlist}>
+      <td className={classes.one}>{data.dia_date}</td>
+      <td className={classes.one}>{data.disease}</td>
+      <td className={classes.one}>{data.contents}</td>
+      <td className={classes.one}>{data.prescription_list.pre_name}</td>
+    </tr>
+    </table>
   );
 };
 
