@@ -4,11 +4,13 @@ const PatientDiaInfo = ({ data }) => {
     console.log(data);
   
     return (
-      <div className={classes.treatlist}>
-        <span>{data.dia_date}</span>
-        <span>{data.dia_contents}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span>{data.disease}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      </div>
+      <table>
+      <tr className={classes.treatlist}>
+        <td className={classes.one}>{data.dia_date}</td>
+        <td className={classes.one}>{data.dia_contents}</td>
+        <td className={classes.one}>{data.disease}</td>
+      </tr>
+      </table>
     );
   };
   

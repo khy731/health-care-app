@@ -50,13 +50,15 @@ const TreatList = ({ selectedList, setSelectedDiaNum }) => {
     <Card>
     <div className={classes.top}>진료 내역</div>
       <div className={classes.listsmallbox}>
-      <div className={classes.inform}>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;진단 일시</span>
-        <span>&nbsp;&nbsp;&nbsp;증상</span>
-        <span>병명</span>
-        <span>처방</span>
-        <span/>
-      </div>
+      <table>
+        <tr className={classes.inform}>
+          <td className={classes.one}>진단 일시</td>
+          <td className={classes.one}>증상</td>
+          <td className={classes.one}>병명</td>
+          <td className={classes.one}>처방</td>
+        </tr>
+      </table>
+      <div className={classes.bottom}/>
       {treatData.map((v) => (
         <TreatInfo key={v.dia_num} data={v} setSelectedDiaNum={setSelectedDiaNum} />
       ))}

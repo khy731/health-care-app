@@ -3,15 +3,17 @@ import classes from "./PatientInfoList.module.css";
 const PatientInfoList = ( {data, onClick} ) => {
 
     return(
-      <div className={classes.treatlist}>
-        <span>{data.name}</span>
-        <span>{data.gender}</span>
-        <span>{data.born}</span>
-        <span>{data.phone}</span>
-        <span>
-            <button className={classes.controlbutton}>상세</button>
-        </span>
-      </div>
+      <table>
+        <tr className={classes.treatlist}>
+          <td className={classes.one}>{data.name}</td>
+          <td className={classes.two}>&nbsp;&nbsp;{data.gender}</td>
+          <td className={classes.three}>{data.born}</td>
+          <td className={classes.four}>{data.phone}</td>
+          <span>
+              <button className={classes.controlbutton}>상세</button>
+          </span>
+        </tr>
+      </table>
     )
 }
 
