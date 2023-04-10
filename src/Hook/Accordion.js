@@ -21,8 +21,8 @@ const Accordion = ({ title, content }) => {
           {content.map((item, index) => (
             <li key={index}>
               <ul>
-                <span>{item.res_date}&nbsp;&nbsp;&nbsp;</span>
-                <span>{item.doctor_name}</span>
+                <span>&nbsp;&nbsp;&nbsp;{item.res_date}</span>
+                <span>&nbsp;&nbsp;&nbsp;{item.doctor_name}</span>
               </ul>
             </li>
           ))}

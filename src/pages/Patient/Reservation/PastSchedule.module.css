@@ -16,3 +16,17 @@
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
+
+@media (max-width: 500px) {
+    .reservebox{
+        width: 350px;
+        margin-top: 1.2rem;
+    }
+    .reservesmallbox{
+        min-height: 230px;
+        padding: 0.7rem 1.5rem;
+    }
+    .top{
+        font-size: 18px;
+    }
+}

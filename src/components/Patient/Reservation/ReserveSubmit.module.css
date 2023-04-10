@@ -65,3 +65,17 @@ select:focus{
     margin-top: 1rem;
     cursor: pointer;
 }
+
+@media (max-width: 500px) {
+    .mainbox{
+        width: 350px;
+        margin-top: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    .top{
+        font-size: 18px;
+    }
+    .control{
+        width: 300px;
+    }
+}

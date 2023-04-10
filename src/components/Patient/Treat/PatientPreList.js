@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Card from "../../UI/Card";
 import PatientPreInfo from "./PatientPreInfo";
 
-import classes from "./PatientDiaList.module.css";
+import classes from "./PatientPreList.module.css";
 const PatientDiaList = () => {
   const [treatData, setTreatData] = useState([]);
   const [id, setId] = useState("");
