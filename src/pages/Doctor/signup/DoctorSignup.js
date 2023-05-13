@@ -94,7 +94,7 @@ const DoctorSignup = () => {
   return (
     <div>
       <br/>
-      <img src={require("../../../components/Header/logo.png")} 
+      <img className={classes.logom} src={require("../../../components/Header/logo.png")} 
       alt="logo" width={280}/>
       <br/><br/>
     <div className={classes.signupbox}>
