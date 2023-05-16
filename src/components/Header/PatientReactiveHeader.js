@@ -24,7 +24,7 @@ const PatientHeader = () => {
   };
 
   const toSenserHandler = () => {
-    navigate("/patient/senser");
+    navigate("/patient/sensor");
   };
 
   const toCodeHandler = () => {
