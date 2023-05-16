@@ -6,6 +6,10 @@
   text-align: left;
 }
 
+.logom{
+  margin-top: 0.2rem;
+}
+
 .control{
     margin-bottom: 0.625rem;
     display: flex;
