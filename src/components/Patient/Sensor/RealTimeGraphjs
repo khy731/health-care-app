@@ -1,0 +1,82 @@
+import React, { useEffect, useRef } from 'react';
+import Chart from 'chart.js';
+
+const RealTimeGraph = ({ values = [], labels = [] }) => {
+  const chartRef = useRef(null);
+  const dataRef = useRef(values.length > 0 ? values : [65, 70, 68, 72, 69]);
+  const labelsRef = useRef(labels.length > 0 ? labels : ['12:00', '12:05', '12:10', '12:15', '12:20']);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // Replace this with your actual server endpoint or data fetching logic
+      const response = await fetch('/api/realtime-data');
+      const data = await response.json();
+
+      // Update the data and labels references with new values
+      dataRef.current = data.values;
+      labelsRef.current = data.labels;
+
+      // Render the graph
+      renderGraph();
+    };
+
+    // Fetch initial data
+    fetchData();
+
+    // Set up an interval to fetch new data periodically
+    const intervalId = setInterval(fetchData, 5000);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const renderGraph = () => {
+    const ctx = chartRef.current.getContext('2d');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labelsRef.current,
+        datasets: [
+          {
+            label: 'Real-Time Data',
+            data: dataRef.current,
+            borderColor: 'blue',
+            borderWidth: 1,
+            tension: 0,
+            fill: false,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: 'Time',
+            },
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: 'Value',
+            },
+          },
+        },
+      },
+    });
+  };
+
+  return (
+    <div>
+      <h2>Real-Time Graph</h2>
+      <canvas ref={chartRef}></canvas>
+    </div>
+  );
+};
+
+export default RealTimeGraph;

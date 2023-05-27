@@ -1,7 +1,9 @@
+import HealthMonitor from "../../../components/Patient/Sensor/HealthMonitor";
+
 const PatientSensor = () => {
     return (
         <div>
-            Sensor Page
+            <HealthMonitor />
         </div>
     )
 }
