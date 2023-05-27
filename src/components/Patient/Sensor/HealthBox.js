@@ -1,23 +1,13 @@
 import React from 'react';
 
+import classes from "./HealthBox.module.css";
 const HealthBox = ({ title, value, isNormal }) => {
-  const boxColor = isNormal ? '#7CFC00' : '#228B22';
+  const boxColor = isNormal ? '#DCEEDB' : '#74A77C';
 
   return (
-    <div>
-      <h3>{title}</h3>
-      <div
-        style={{
-          width: '100px',
-          height: '100px',
-          backgroundColor: boxColor,
-          color: '#fff',
-          fontWeight: 'bold',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+    <div className={classes.healthbox}>
+      <div className={classes.name}>{title}</div>
+      <div className={classes.value} style={{backgroundColor: boxColor}}>
         {value}
       </div>
     </div>
