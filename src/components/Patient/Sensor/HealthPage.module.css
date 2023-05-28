@@ -17,3 +17,16 @@
     display: flex;
     flex-direction: column;
 }
+
+@media (max-width: 500px) {
+    .bottombox{
+        width: 350px;
+        margin-top: 1.2rem;
+    }
+    .bottomsmallbox{
+        padding-top: 1.3rem;
+    }
+    .changeposition{
+        flex-direction: column;
+    }
+}
