@@ -1,0 +1,20 @@
+.healthbox{
+    min-height: 145px;
+}
+
+.name{
+    font-size: 16.5px;
+    text-align: left;
+    border-bottom: 1px solid #CFCFD2;
+    width: 335px;
+    padding-bottom: 5px;
+    margin-bottom: 7.5px;
+}
+
+.value{
+    width: 100px;
+    font-size: 18.5px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.4rem;
+}

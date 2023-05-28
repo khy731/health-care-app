@@ -1,0 +1,19 @@
+.bottombox{
+    width: 800px;
+    margin-top: 10px;
+}
+.bottomsmallbox{
+    border: 1px solid #CFCFD2;
+    padding: 1.2rem 2.5rem;
+    background-color: #FCFCFC;
+}
+
+.changeposition{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.position{
+    display: flex;
+    flex-direction: column;
+}

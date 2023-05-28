@@ -1,13 +1,15 @@
 import React from "react";
 
+import classes from "./HealthBox.module.css";
 const HealthBox = ({ title, value, isNormal }) => {
+
   const boxColor = isNormal ? "#7CFC00" : "#228B22";
 
   return (
-    <div>
-      <h3>{title}</h3>
-      <div>
-        <p>현재 수치: {value}</p>
+     <div className={classes.healthbox}>
+      <div className={classes.name}>{title}</div>
+      <div className={classes.value} style={{backgroundColor: boxColor}}>
+        현재 수치: {value}
       </div>
       <div
         style={{
