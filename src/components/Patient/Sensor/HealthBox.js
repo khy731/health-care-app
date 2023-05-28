@@ -18,7 +18,7 @@ const HealthBox = ({ title, value, isNormal }) => {
           alignItems: 'center',
         }}
       >
-        {value}
+        {isNormal ? '정상' : '비정상'}
       </div>
     </div>
   );
