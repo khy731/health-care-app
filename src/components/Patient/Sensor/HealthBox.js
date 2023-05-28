@@ -1,24 +1,27 @@
-import React from 'react';
+import React from "react";
 
 const HealthBox = ({ title, value, isNormal }) => {
-  const boxColor = isNormal ? '#7CFC00' : '#228B22';
+  const boxColor = isNormal ? "#7CFC00" : "#228B22";
 
   return (
     <div>
       <h3>{title}</h3>
+      <div>
+        <p>현재 수치: {value}</p>
+      </div>
       <div
         style={{
-          width: '100px',
-          height: '100px',
+          width: "100px",
+          height: "100px",
           backgroundColor: boxColor,
-          color: '#fff',
-          fontWeight: 'bold',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          color: "#fff",
+          fontWeight: "bold",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        {isNormal ? '정상' : '비정상'}
+        {isNormal ? "정상" : "비정상"}
       </div>
     </div>
   );
