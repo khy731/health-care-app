@@ -13,7 +13,7 @@ const HealthMonitor = () => {
   const startMonitoring = () => {
     const fakeHeartRate = Math.floor(Math.random() * (100 - 60 + 1)) + 60;
     const fakeBodyTemperature = (Math.random() * (99 - 97) + 97).toFixed(1);
-    const fakeElectrocardiogram = 'Sample ECG data';
+    const fakeElectrocardiogram = 'Sample ECG';
     const fakeOxygenSaturation = Math.floor(Math.random() * (100 - 90 + 1)) + 90;
 
     setHeartRate(fakeHeartRate);

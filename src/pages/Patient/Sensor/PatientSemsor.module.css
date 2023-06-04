@@ -11,3 +11,11 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+@media (max-width: 500px) {
+    .positionchange{
+        width: 350px;
+        margin-top: 1.5rem;
+        flex-direction: column;
+    }
+}

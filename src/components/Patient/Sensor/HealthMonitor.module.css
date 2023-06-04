@@ -59,3 +59,20 @@ td{
     cursor: pointer;
     background: #F7F7F7;
 }
+
+@media (max-width: 500px) {
+    .topbox{
+        width: 350px;
+        margin-top: 1.2rem;
+    }
+    .top{
+        font-size: 18px;
+    }
+    .positionchange{
+        flex-direction: column;
+    }
+    .buttonposition{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
