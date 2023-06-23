@@ -1,15 +1,13 @@
 import React, { useState, useCallback } from "react";
 
 const PatientDailyForm = () => {
-  // useState를 사용하여 각 input 요소의 값을 저장합니다.
-  const [date, setDate] = useState(getTodayDate()); // 오늘 날짜를 기본값으로 설정합니다.
+  const [date, setDate] = useState(getTodayDate());
   const [medication, setMedication] = useState([]);
   const [exercise, setExercise] = useState([]);
   const [mood, setMood] = useState(0);
   const [diary, setDiary] = useState("");
   const [sensor, setSensor] = useState("");
 
-  // 오늘 날짜를 반환하는 함수입니다.
   function getTodayDate() {
     const today = new Date();
     const year = today.getFullYear();
@@ -18,7 +16,6 @@ const PatientDailyForm = () => {
     return `${year}/${month}/${day}`;
   }
 
-  // 약 복용 상태를 토글하는 함수입니다.
   function toggleMedication(type) {
     if (medication.includes(type)) {
       setMedication(medication.filter((item) => item !== type));
@@ -27,7 +24,6 @@ const PatientDailyForm = () => {
     }
   }
 
-  // 운동량 상태를 토글하는 함수입니다.
   function toggleExercise(type) {
     if (exercise.includes(type)) {
       setExercise(exercise.filter((item) => item !== type));
@@ -36,20 +32,81 @@ const PatientDailyForm = () => {
     }
   }
 
-  // 상태를 변경하는 함수입니다.
   function handleMoodChange(value) {
     setMood(value);
   }
 
-  // 일기를 작성하는 함수입니다.
   function handleDiaryChange(event) {
     setDiary(event.target.value);
   }
 
-  // 센서값을 입력하는 함수입니다.
   function handleSensorChange(event) {
     setSensor(event.target.value);
   }
+
+  const createDiary = useCallback(async () => {
+    try {
+      const response = await fetch(`/patient/{id}/diary`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // 포맷 참고
+          date,
+          medication,
+          exercise,
+          mood,
+          diary,
+          sensor,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("일기 작성 성공");
+        setDate(getTodayDate());
+        setMedication([]);
+        setExercise([]);
+        setMood(0);
+        setDiary("");
+        setSensor("");
+        alert("일기 작성이 완료되었습니다.")
+      } else {
+        console.error("오류 발생");
+        alert("오류가 발생했습니다. 잠시만 기다려주세요.");
+      }
+    } catch (error) {
+      console.error("오류: ", error);
+    }
+  }, [date, medication, exercise, mood, diary, sensor]);
+
+  const editDiary = useCallback(async () => {
+    try {
+      const response = await fetch(`/patient/{id}/diary/update`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          date,
+          medication,
+          exercise,
+          mood,
+          diary,
+          sensor,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("수정 완료");
+        // 수정 반영 필요 시 이후 보완
+      } else {
+        console.error("오류 발생");
+      }
+    } catch (error) {
+      console.error("오류: ", error);
+    }
+  }, [date, medication, exercise, mood, diary, sensor]);
 
   return (
     <form>
@@ -74,7 +131,7 @@ const PatientDailyForm = () => {
         </label>
       </div>
       <label>
-        운동량
+        활동 정도
         <button type="button" onClick={() => toggleExercise("< 30 mins")}>
           30분 이하
         </button>
@@ -102,7 +159,7 @@ const PatientDailyForm = () => {
       </div>
       <div>
         <label>
-          일기
+          일기 내용
           <textarea value={diary} onChange={handleDiaryChange} />
         </label>
       </div>
@@ -111,6 +168,14 @@ const PatientDailyForm = () => {
           센서 값
           <input type="text" value={sensor} onChange={handleSensorChange} />
         </label>
+      </div>
+      <div>
+        <button type="button" onClick={createDiary}>
+          일기 작성하기
+        </button>
+        <button type="button" onClick={editDiary}>
+          일기 수정하기
+        </button>
       </div>
     </form>
   );
