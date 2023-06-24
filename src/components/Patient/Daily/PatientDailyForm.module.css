@@ -1,0 +1,34 @@
+.dailyBox{
+    width: 430px;
+}
+.dailySmallBox{
+    min-height: 474px;
+    border: 1px solid #CFCFD2;
+    padding: 1rem 1.5rem;
+    background-color: #FCFCFC;
+}
+
+.top{
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.list{
+    font-size: 13px;
+    border-top: 1.35px solid #CFCFD2;
+    background-color: #FCFCFC;
+    display: flex;
+}
+.list label{
+    background-color: #F1F6F1;
+    width: 150px;
+    padding-top: 10px;
+    height: 25px;
+}
+.list input{
+    border: 1px solid #FCFCFC;
+    background-color: #FCFCFC;
+    margin-left: 7px;
+}
