@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from "react";
 
+import classes from "./PatientDailyForm.module.css";
 const PatientDailyForm = () => {
   const [date, setDate] = useState(getTodayDate());
   const [medication, setMedication] = useState([]);
@@ -109,16 +110,16 @@ const PatientDailyForm = () => {
   }, [date, medication, exercise, mood, diary, sensor]);
 
   return (
+    <div className={classes.dailyBox}>
+    <div className={classes.top}>오늘의 일지</div>
+    <div className={classes.dailySmallBox}>
     <form>
-      <div>
-        <label>
-          날짜
+      <div className={classes.list}>
+        <label>날짜</label>
           <input type="text" value={date} readOnly />
-        </label>
       </div>
-      <div>
-        <label>
-          약 복용
+      <div className={classes.list}>
+        <label>약 복용</label>
           <button type="button" onClick={() => toggleMedication("morning")}>
             아침
           </button>
@@ -128,23 +129,21 @@ const PatientDailyForm = () => {
           <button type="button" onClick={() => toggleMedication("dinner")}>
             저녁
           </button>
-        </label>
       </div>
-      <label>
-        활동 정도
-        <button type="button" onClick={() => toggleExercise("< 30 mins")}>
-          30분 이하
-        </button>
-        <button type="button" onClick={() => toggleExercise("1 hour +")}>
-          1시간 이상
-        </button>
-        <button type="button" onClick={() => toggleExercise("10,000 steps")}>
-          10,000 걸음 달성
-        </button>
-      </label>
-      <div>
-        <label>
-          오늘의 상태
+      <div className={classes.list}>
+        <label>운동량</label>
+          <button type="button" onClick={() => toggleExercise("< 30 mins")}>
+            30분 이하
+          </button>
+          <button type="button" onClick={() => toggleExercise("1 hour +")}>
+            1시간 이상
+          </button>
+          <button type="button" onClick={() => toggleExercise("10,000 steps")}>
+            10,000 걸음 달성
+          </button>
+      </div>
+      <div className={classes.list}>
+        <label>상태</label>
           {[...Array(5)].map((_, index) => (
             <button
               key={index}
@@ -155,19 +154,10 @@ const PatientDailyForm = () => {
               ★
             </button>
           ))}
-        </label>
       </div>
-      <div>
-        <label>
-          일기 내용
+      <div className={classes.list}>
+        <label>일기</label>
           <textarea value={diary} onChange={handleDiaryChange} />
-        </label>
-      </div>
-      <div>
-        <label>
-          센서 값
-          <input type="text" value={sensor} onChange={handleSensorChange} />
-        </label>
       </div>
       <div>
         <button type="button" onClick={createDiary}>
@@ -178,6 +168,8 @@ const PatientDailyForm = () => {
         </button>
       </div>
     </form>
+    </div>
+    </div>
   );
 };
 

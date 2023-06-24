@@ -1,13 +1,18 @@
 import PatientDailyForm from "../../../components/Patient/Daily/PatientDailyForm";
+import PatientHeader from "../../../components/Header/PatientHeader";
 
+import classes from './PatientDaily.module.css';
 const PatientDaily = () => {
 return(
-    <div>
-        <div>
-            <h2>일기 작성하기</h2>
+    <>
+        <PatientHeader />
+        <div className={classes.mainbox}>
+            <div className={classes.positionchange}>
+                <PatientDailyForm />
+                <></>
+            </div>
         </div>
-        <PatientDailyForm />
-    </div>  
+    </> 
 );
 }
 
